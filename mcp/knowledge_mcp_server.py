@@ -16,6 +16,7 @@ from langchain_chroma import Chroma
 from utils.constants import CONST
 from utils.metadata_handler import MetadataHandler
 from dotenv import load_dotenv
+from langchain.schema import HumanMessage, SystemMessage
 
 # Load environment variables
 load_dotenv()
@@ -77,14 +78,14 @@ retriever = KnowledgeRetriever()
 @mcp.tool()
 def get_knowledge(query: str, k: int = 2):
     """
-    Retrieve relevant knowledge from the vector database based on the query.
+    Retrieve relevant knowledge from the vector database based on the query and generate a response.
     
     Args:
         query: The search query to find relevant documents
         k: Number of documents to retrieve (default: 2)
     
     Returns:
-        Dictionary containing retrieved documents and metadata
+        Dictionary containing the generated response, retrieved documents, and metadata
     """
     if not retriever.initialized:
         return {
@@ -98,28 +99,54 @@ def get_knowledge(query: str, k: int = 2):
         # Retrieve documents from vector store
         retrieved_docs = retriever.vector_store.similarity_search(query, k=k)
         
-        # Format retrieved content
-        retrieved_content = []
-        for i, doc in enumerate(retrieved_docs):
-            retrieved_content.append({
-                "content": doc.page_content,
-                "metadata": doc.metadata,
-                "relevance_rank": i + 1
-            })
+        if not retrieved_docs:
+            return {
+                "status": "error",
+                "message": "No relevant documents found for the query.",
+                "query": query
+            }
+        
+        # Combine retrieved content
+        retrieved_context = "\n".join(doc.page_content for doc in retrieved_docs)
         
         # Get latest metadata
         metadata = retriever.metadata_handler.load_latest_metadata()
         formatted_metadata = retriever.metadata_handler.format_metadata_for_prompt(metadata)
         
+        # Create the final query for the LLM
+        final_query = f"""
+User Query: {query}
+
+Context:
+{retrieved_context}
+
+Metadata:
+{formatted_metadata}
+"""
+        
+        # Use LLM to generate a response
+        response = retriever.llm.invoke([HumanMessage(content=final_query)])
+        
+        # Format retrieved content for response
+        retrieved_content = [
+            {
+                "content": doc.page_content,
+                "metadata": doc.metadata,
+                "relevance_rank": i + 1
+            }
+            for i, doc in enumerate(retrieved_docs)
+        ]
+        
         result = {
             "status": "success",
             "query": query,
+            "response": response.content.strip(),
             "retrieved_documents": retrieved_content,
             "driving_metadata": formatted_metadata,
             "total_documents": len(retrieved_content)
         }
         
-        logging.info("✅ Successfully retrieved %d documents", len(retrieved_content))
+        logging.info("✅ Successfully retrieved and generated response")
         return result
         
     except Exception as e:
@@ -166,7 +193,36 @@ def get_driving_metadata():
             "error": f"Failed to retrieve metadata: {str(e)}",
             "status": "error"
         }
-
+@app.get("/mcp/tools")
+def get_available_tools():
+    """Return all available tools with their descriptions and parameters"""
+    tools_definitions = [
+        {
+            "name": "get_knowledge",
+            "description": "Retrieve relevant knowledge from the vector database based on the query",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query to find relevant documents"
+                    },
+                    "k": {
+                        "type": "integer",
+                        "description": "Number of documents to retrieve",
+                        "default": 2
+                    }
+                },
+                "required": ["query"]
+            }
+        },
+        {
+            "name": "get_driving_metadata",
+            "description": "Get the current driving metadata without performing document retrieval",
+            "parameters": {}
+        }
+    ]
+    return {"tools": tools_definitions}
 if __name__ == "__main__":
     # Initialize the retriever before starting the server
     retriever.initialize()

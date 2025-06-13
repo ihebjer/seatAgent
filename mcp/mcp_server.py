@@ -179,184 +179,203 @@ def move_height_up(current_value: int, step: int = MOTOR_STEP, new_value: int = 
     }
 
 @mcp.tool()
-def move_height_down(current_value: int):
+def move_height_down(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
     """
     Move the seat height down.
     
     Args:
         current_value: Current height position (0-100)
     """
-    new_value = clamp(current_value - MOTOR_STEP)
-    logging.info(f"⬇️ Moving Height down from {current_value} to {new_value}")
+    if new_value is None:
+        new_value = current_value - step
+    new_value = clamp(new_value)
+    logging.info(f"⬅️ Moving height down from {current_value} to {new_value}")
     return {
-        "status": "Height moved down",
-        "motor": "Height",
+        "status": "height moved down",
+        "motor": "height",
         "previous_value": current_value,
         "new_value": new_value,
-        "step": MOTOR_STEP,
-        "message": f"Seat height lowered from {current_value} to {new_value}"
+        "step": step,
+        "message": f"Track moved backward from {current_value} to {new_value}"
     }
 
 # Backrest Motor Controls
 @mcp.tool()
-def move_backrest_forward(current_value: int):
+def move_backrest_forward(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
     """
     Move the backrest forward (more upright position).
     
     Args:
         current_value: Current backrest position (0-100)
     """
-    new_value = clamp(current_value + MOTOR_STEP)
-    logging.info(f"➡️ Moving Backrest forward from {current_value} to {new_value}")
+    if new_value is None:
+        new_value = current_value - step
+    new_value = clamp(new_value)
+    logging.info(f"⬅️ Moving backrest forward from {current_value} to {new_value}")
     return {
-        "status": "Backrest moved forward",
-        "motor": "Backrest",
+        "status": "backrest moved forward",
+        "motor": "backrest",
         "previous_value": current_value,
         "new_value": new_value,
-        "step": MOTOR_STEP,
-        "message": f"Backrest moved to more upright position: {current_value} → {new_value}"
+        "step": step,
+        "message": f"Track moved backward from {current_value} to {new_value}"
     }
 
 @mcp.tool()
-def move_backrest_backward(current_value: int):
+def move_backrest_backward(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
     """
     Move the backrest backward (more reclined position).
     
     Args:
         current_value: Current backrest position (0-100)
     """
-    new_value = clamp(current_value - MOTOR_STEP)
-    logging.info(f"⬅️ Moving Backrest backward from {current_value} to {new_value}")
+    if new_value is None:
+        new_value = current_value - step
+    new_value = clamp(new_value)
+    logging.info(f"⬅️ Moving backrest backward from {current_value} to {new_value}")
     return {
-        "status": "Backrest moved backward",
-        "motor": "Backrest",
+        "status": "backrest moved backward",
+        "motor": "backrest",
         "previous_value": current_value,
         "new_value": new_value,
-        "step": MOTOR_STEP,
-        "message": f"Backrest reclined: {current_value} → {new_value}"
-    }
+        "step": step,
+        "message": f"Track moved backward from {current_value} to {new_value}"
+        }
 
 # SeatTilt Motor Controls
 @mcp.tool()
-def move_seattilt_up(current_value: int):
+def move_seattilt_up(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
     """
     Tilt the seat up (front edge higher).
     
     Args:
         current_value: Current seat tilt position (0-100)
     """
-    new_value = clamp(current_value + MOTOR_STEP)
-    logging.info(f"⬆️ Moving SeatTilt up from {current_value} to {new_value}")
+    if new_value is None:
+        new_value = current_value - step
+    new_value = clamp(new_value)
+    logging.info(f"⬅️ Moving seattilt up from {current_value} to {new_value}")
     return {
-        "status": "SeatTilt moved up",
-        "motor": "SeatTilt",
+        "status": "seattilt moved up",
+        "motor": "seattilt",
         "previous_value": current_value,
         "new_value": new_value,
-        "step": MOTOR_STEP,
-        "message": f"Seat tilted up: {current_value} → {new_value}"
-    }
+        "step": step,
+        "message": f"Track moved backward from {current_value} to {new_value}"
+        }
 
 @mcp.tool()
-def move_seattilt_down(current_value: int):
+def move_seattilt_down(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
     """
     Tilt the seat down (front edge lower).
     
     Args:
         current_value: Current seat tilt position (0-100)
     """
-    new_value = clamp(current_value - MOTOR_STEP)
-    logging.info(f"⬇️ Moving SeatTilt down from {current_value} to {new_value}")
+    if new_value is None:
+        new_value = current_value - step
+    new_value = clamp(new_value)
+    logging.info(f"⬅️ Moving seattilt down from {current_value} to {new_value}")
     return {
-        "status": "SeatTilt moved down",
-        "motor": "SeatTilt",
+        "status": "seattilt moved down",
+        "motor": "seattilt",
         "previous_value": current_value,
         "new_value": new_value,
-        "step": MOTOR_STEP,
-        "message": f"Seat tilted down: {current_value} → {new_value}"
-    }
+        "step": step,
+        "message": f"Track moved backward from {current_value} to {new_value}"
+        }
+
 
 # UBA Motor Controls
 @mcp.tool()
-def move_uba_forward(current_value: int):
+def move_uba_forward(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
     """
     Move the UBA (Upper Back Adjustment) forward.
     
     Args:
         current_value: Current UBA position (0-100)
     """
-    new_value = clamp(current_value + MOTOR_STEP)
-    logging.info(f"➡️ Moving UBA forward from {current_value} to {new_value}")
+    if new_value is None:
+        new_value = current_value - step
+    new_value = clamp(new_value)
+    logging.info(f"⬅️ Moving uba forward from {current_value} to {new_value}")
     return {
-        "status": "UBA moved forward",
-        "motor": "UBA",
+        "status": "uba moved forward",
+        "motor": "uba",
         "previous_value": current_value,
         "new_value": new_value,
-        "step": MOTOR_STEP,
-        "message": f"Upper back support adjusted: {current_value} → {new_value}"
+        "step": step,
+        "message": f"Track moved backward from {current_value} to {new_value}"
     }
 
 @mcp.tool()
-def move_uba_backward(current_value: int):
+def move_uba_backward(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
     """
     Move the UBA (Upper Back Adjustment) backward.
     
     Args:
         current_value: Current UBA position (0-100)
     """
-    new_value = clamp(current_value - MOTOR_STEP)
-    logging.info(f"⬅️ Moving UBA backward from {current_value} to {new_value}")
+    if new_value is None:
+        new_value = current_value - step
+    new_value = clamp(new_value)
+    logging.info(f"⬅️ Moving uba backward from {current_value} to {new_value}")
     return {
-        "status": "UBA moved backward",
-        "motor": "UBA", 
+        "status": "uba moved backward",
+        "motor": "uba",
         "previous_value": current_value,
         "new_value": new_value,
-        "step": MOTOR_STEP,
-        "message": f"Upper back support adjusted: {current_value} → {new_value}"
+        "step": step,
+        "message": f"Track moved backward from {current_value} to {new_value}"
     }
 
 # Headrest Motor Controls
 @mcp.tool()
-def move_headrest_forward(current_value: int):
+def move_headrest_forward(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
     """
     Move the headrest forward (closer to head).
     
     Args:
         current_value: Current headrest position (0-100)
     """
-    new_value = clamp(current_value + MOTOR_STEP)
-    logging.info(f"➡️ Moving Headrest forward from {current_value} to {new_value}")
+    if new_value is None:
+        new_value = current_value - step
+    new_value = clamp(new_value)
+    logging.info(f"⬅️ Moving headrest forward from {current_value} to {new_value}")
     return {
-        "status": "Headrest moved forward",
-        "motor": "Headrest",
+        "status": "headrest moved forward",
+        "motor": "headrest",
         "previous_value": current_value,
         "new_value": new_value,
-        "step": MOTOR_STEP,
-        "message": f"Headrest moved closer: {current_value} → {new_value}"
-    }
+        "step": step,
+        "message": f"Track moved backward from {current_value} to {new_value}"
+    }  
 
 @mcp.tool()
-def move_headrest_backward(current_value: int):
+def move_headrest_backward(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
     """
     Move the headrest backward (away from head).
     
     Args:
         current_value: Current headrest position (0-100)
     """
-    new_value = clamp(current_value - MOTOR_STEP)
-    logging.info(f"⬅️ Moving Headrest backward from {current_value} to {new_value}")
+    if new_value is None:
+        new_value = current_value - step
+    new_value = clamp(new_value)
+    logging.info(f"⬅️ Moving headrest backward from {current_value} to {new_value}")
     return {
-        "status": "Headrest moved backward",
-        "motor": "Headrest",
+        "status": "headrest moved backward",
+        "motor": "headrest",
         "previous_value": current_value,
         "new_value": new_value,
-        "step": MOTOR_STEP,
-        "message": f"Headrest moved away: {current_value} → {new_value}"
+        "step": step,
+        "message": f"Track moved backward from {current_value} to {new_value}"  
     }
 
 # === Tool Discovery Endpoint ===
 
 @app.get("/mcp/tools")
-def get_available_tools():
+async def get_available_tools():
     """Return all available tools with their descriptions and parameters"""
     
     tools_definitions = [

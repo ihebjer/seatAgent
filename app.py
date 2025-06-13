@@ -70,7 +70,7 @@ class DynamicMCPClient:
         for server_name, server_url in self.mcp_servers.items():
             try:
                 # Get tools list from MCP server
-                response = requests.get(f"{server_url}/mcp/tools")
+                response = requests.get(f"{server_url}/mcp/tools",timeout=3)
                 if response.status_code == 200:
                     tools_data = response.json()
                     self.available_tools[server_name] = {
@@ -153,17 +153,18 @@ Guidelines:
 - Always consider current motor positions when making adjustments
 - Provide clear, conversational responses
 
-When you decide to use a tool, respond with a JSON object containing:
+When you decide to use motor tool, respond with a JSON object containing:
 {{
     "action": "call_tool",
-    "server": "motor" or "knowledge",
+    "server": "motor" ,
     "tool": "tool_name",
     "args": {{parameter_name: value}},
     "reasoning": "Why you chose this tool"
 }}
 
-If no tool is needed, respond with:
-{{
+When you decide to use knowledge tool, respond with:
+
+{{  "server": "knowledge",
     "action": "direct_response",
     "response": "Your direct response to the user"
 }}
@@ -348,8 +349,8 @@ if __name__ == "__main__":
     init_thread = threading.Thread(target=client.initialize, daemon=True)
     init_thread.start()
     
-    # Wait a moment for initialization
-    time.sleep(2)
+    # Wait for the initialization thread to complete
+    init_thread.join()
     
     # Start the Flask app
     run_app()

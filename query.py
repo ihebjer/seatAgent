@@ -9,7 +9,7 @@ with open(config_path, 'r') as file:
     config = yaml.safe_load(file)
 
 server_port = config["server"]["port"]
-query = "move the headrest up"
+query = "What is the primary function of Forvia's AI-based seat comfort system?"
 
 response = requests.post(f"http://localhost:{server_port}/query", json={"query": query})
 
