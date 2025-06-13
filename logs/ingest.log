@@ -1,0 +1,629 @@
+2025-03-13 10:43:42,578 - WARNING - From C:\Users\1jridiih\AppData\Roaming\Python\Python311\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-03-13 10:43:45,924 - INFO - PyTorch version 2.5.1 available.
+2025-03-13 10:43:45,924 - INFO - TensorFlow version 2.15.0 available.
+2025-03-13 10:43:45,924 - INFO - JAX version 0.4.34 available.
+2025-03-13 10:43:47,675 - INFO - Use pytorch device_name: cpu
+2025-03-13 10:43:47,675 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-03-13 10:45:49,136 - WARNING - No documents found in the source directory.
+2025-03-13 10:47:21,448 - WARNING - From C:\Users\1jridiih\AppData\Roaming\Python\Python311\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-03-13 10:47:22,614 - INFO - PyTorch version 2.5.1 available.
+2025-03-13 10:47:22,614 - INFO - TensorFlow version 2.15.0 available.
+2025-03-13 10:47:22,630 - INFO - JAX version 0.4.34 available.
+2025-03-13 10:47:23,399 - INFO - Use pytorch device_name: cpu
+2025-03-13 10:47:23,399 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-03-13 10:47:51,934 - WARNING - From C:\Users\1jridiih\AppData\Roaming\Python\Python311\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-03-13 10:47:52,725 - INFO - PyTorch version 2.5.1 available.
+2025-03-13 10:47:52,736 - INFO - TensorFlow version 2.15.0 available.
+2025-03-13 10:47:52,739 - INFO - JAX version 0.4.34 available.
+2025-03-13 10:47:53,571 - INFO - Use pytorch device_name: cpu
+2025-03-13 10:47:53,571 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-03-13 10:47:55,703 - INFO - Processing C:\Users\1jridiih\OneDrive - FORVIA\Documents\agent_forvia\source_documents\Orca_paper.pdf...
+2025-03-13 10:47:55,750 - ERROR - Failed to process C:\Users\1jridiih\OneDrive - FORVIA\Documents\agent_forvia\source_documents\Orca_paper.pdf: `pypdf` package not found, please install it with `pip install pypdf`
+2025-03-13 10:58:15,454 - WARNING - From C:\Users\1jridiih\AppData\Roaming\Python\Python311\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-03-13 10:58:16,471 - INFO - PyTorch version 2.5.1 available.
+2025-03-13 10:58:16,479 - INFO - TensorFlow version 2.15.0 available.
+2025-03-13 10:58:16,479 - INFO - JAX version 0.4.34 available.
+2025-03-13 10:58:17,202 - INFO - Use pytorch device_name: cpu
+2025-03-13 10:58:17,202 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-03-13 10:58:42,654 - WARNING - From C:\Users\1jridiih\AppData\Roaming\Python\Python311\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-03-13 10:58:43,186 - INFO - PyTorch version 2.5.1 available.
+2025-03-13 10:58:43,186 - INFO - TensorFlow version 2.15.0 available.
+2025-03-13 10:58:43,186 - INFO - JAX version 0.4.34 available.
+2025-03-13 10:58:44,001 - INFO - Use pytorch device_name: cpu
+2025-03-13 10:58:44,001 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-03-13 10:58:46,237 - INFO - Processing C:\Users\1jridiih\OneDrive - FORVIA\Documents\agent_forvia\source_documents\Orca_paper.pdf...
+2025-03-13 10:58:46,289 - ERROR - \u274c Error processing C:\Users\1jridiih\OneDrive - FORVIA\Documents\agent_forvia\source_documents\Orca_paper.pdf: `pypdf` package not found, please install it with `pip install pypdf`
+2025-03-13 11:00:40,926 - WARNING - From C:\Users\1jridiih\AppData\Roaming\Python\Python311\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-03-13 11:00:42,097 - INFO - PyTorch version 2.5.1 available.
+2025-03-13 11:00:42,097 - INFO - TensorFlow version 2.15.0 available.
+2025-03-13 11:00:42,097 - INFO - JAX version 0.4.34 available.
+2025-03-13 11:00:42,864 - INFO - Use pytorch device_name: cpu
+2025-03-13 11:00:42,864 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-03-13 11:01:08,446 - WARNING - From C:\Users\1jridiih\AppData\Roaming\Python\Python311\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-03-13 11:01:09,053 - INFO - PyTorch version 2.5.1 available.
+2025-03-13 11:01:09,053 - INFO - TensorFlow version 2.15.0 available.
+2025-03-13 11:01:09,063 - INFO - JAX version 0.4.34 available.
+2025-03-13 11:01:09,797 - INFO - Use pytorch device_name: cpu
+2025-03-13 11:01:09,797 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-03-13 11:01:11,830 - INFO - Processing C:\Users\1jridiih\OneDrive - FORVIA\Documents\agent_forvia\source_documents\Orca_paper.pdf...
+2025-03-13 11:01:13,161 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-03-13 11:08:28,222 - INFO - Successfully processed C:\Users\1jridiih\OneDrive - FORVIA\Documents\agent_forvia\source_documents\Orca_paper.pdf
+2025-03-13 12:00:39,135 - WARNING - From C:\Users\1jridiih\AppData\Roaming\Python\Python311\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-03-13 12:00:41,557 - INFO - PyTorch version 2.5.1 available.
+2025-03-13 12:00:41,568 - INFO - TensorFlow version 2.15.0 available.
+2025-03-13 12:00:41,574 - INFO - JAX version 0.4.34 available.
+2025-03-13 12:00:42,983 - INFO - Use pytorch device_name: cpu
+2025-03-13 12:00:42,984 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-03-13 12:00:45,594 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-03-13 12:03:27,699 - WARNING - From C:\Users\1jridiih\AppData\Roaming\Python\Python311\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-03-13 12:03:29,283 - INFO - PyTorch version 2.5.1 available.
+2025-03-13 12:03:29,290 - INFO - TensorFlow version 2.15.0 available.
+2025-03-13 12:03:29,293 - INFO - JAX version 0.4.34 available.
+2025-03-13 12:03:30,456 - INFO - Use pytorch device_name: cpu
+2025-03-13 12:03:30,458 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-03-13 12:03:32,650 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-03-13 12:08:07,000 - WARNING - From C:\Users\1jridiih\AppData\Roaming\Python\Python311\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-03-13 12:08:08,706 - INFO - PyTorch version 2.5.1 available.
+2025-03-13 12:08:08,715 - INFO - TensorFlow version 2.15.0 available.
+2025-03-13 12:08:08,720 - INFO - JAX version 0.4.34 available.
+2025-03-13 12:08:09,904 - INFO - Use pytorch device_name: cpu
+2025-03-13 12:08:09,904 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-03-13 12:08:12,248 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-03-13 12:08:56,790 - WARNING - From C:\Users\1jridiih\AppData\Roaming\Python\Python311\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-03-13 12:08:58,510 - INFO - PyTorch version 2.5.1 available.
+2025-03-13 12:08:58,519 - INFO - TensorFlow version 2.15.0 available.
+2025-03-13 12:08:58,522 - INFO - JAX version 0.4.34 available.
+2025-03-13 12:08:59,639 - INFO - Use pytorch device_name: cpu
+2025-03-13 12:08:59,639 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-03-13 12:09:01,993 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-03-13 12:13:32,722 - WARNING - From C:\Users\1jridiih\AppData\Roaming\Python\Python311\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-03-13 12:13:34,313 - INFO - PyTorch version 2.5.1 available.
+2025-03-13 12:13:34,323 - INFO - TensorFlow version 2.15.0 available.
+2025-03-13 12:13:34,326 - INFO - JAX version 0.4.34 available.
+2025-03-13 12:13:35,409 - INFO - Use pytorch device_name: cpu
+2025-03-13 12:13:35,410 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-03-13 12:13:37,630 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-03-13 12:14:15,497 - WARNING - From C:\Users\1jridiih\AppData\Roaming\Python\Python311\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-03-13 12:14:16,424 - INFO - PyTorch version 2.5.1 available.
+2025-03-13 12:14:16,432 - INFO - TensorFlow version 2.15.0 available.
+2025-03-13 12:14:16,435 - INFO - JAX version 0.4.34 available.
+2025-03-13 12:14:17,529 - INFO - Use pytorch device_name: cpu
+2025-03-13 12:14:17,531 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-03-13 12:14:20,588 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-03-13 12:14:21,066 - INFO - Processing C:\Users\1jridiih\OneDrive - FORVIA\Documents\agent_forvia\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use.pdf...
+2025-03-13 12:16:41,652 - INFO - Successfully processed C:\Users\1jridiih\OneDrive - FORVIA\Documents\agent_forvia\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use.pdf
+2025-04-09 17:50:04,359 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-09 17:52:16,392 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-09 17:53:15,165 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-09 17:54:20,925 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-09 17:55:13,862 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-09 17:57:21,178 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-09 17:57:21,971 - INFO - Use pytorch device_name: cpu
+2025-04-09 17:57:21,971 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 09:31:54,501 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 09:31:55,439 - INFO - Use pytorch device_name: cpu
+2025-04-10 09:31:55,439 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 09:47:07,217 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 09:47:21,987 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 09:47:22,034 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 09:47:22,034 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 09:47:22,612 - INFO - Use pytorch device_name: cpu
+2025-04-10 09:47:22,612 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 09:47:22,627 - INFO - Use pytorch device_name: cpu
+2025-04-10 09:47:22,627 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 09:47:22,627 - INFO - Use pytorch device_name: cpu
+2025-04-10 09:47:22,627 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 09:47:31,008 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 09:47:31,008 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 09:47:31,182 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use.pdf...
+2025-04-10 09:47:31,182 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p.pdf...
+2025-04-10 09:47:31,213 - ERROR - \u274c Error processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p.pdf: `pypdf` package not found, please install it with `pip install pypdf`
+
+2025-04-10 09:47:31,213 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc.pdf...
+2025-04-10 09:47:31,213 - ERROR - \u274c Error processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc.pdf: `pypdf` package not found, please install it with `pip install pypdf`
+2025-04-10 09:47:34,702 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 10:39:15,966 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 10:39:16,716 - INFO - Use pytorch device_name: cpu
+2025-04-10 10:39:16,716 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 10:39:21,872 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 10:39:35,483 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 10:39:35,531 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 10:39:35,562 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 10:39:36,093 - INFO - Use pytorch device_name: cpu
+2025-04-10 10:39:36,093 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 10:39:36,140 - INFO - Use pytorch device_name: cpu
+2025-04-10 10:39:36,140 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 10:39:36,155 - INFO - Use pytorch device_name: cpu
+2025-04-10 10:39:36,155 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 10:39:43,594 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 10:39:43,626 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 10:39:43,766 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use.pdf...
+2025-04-10 10:39:43,782 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p.pdf...
+2025-04-10 10:39:43,797 - ERROR - \u274c Error processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use.pdf: `pypdf` package not found, please install it with `pip install pypdf`
+2025-04-10 10:39:43,797 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc.pdf...
+2025-04-10 10:39:43,797 - ERROR - \u274c Error processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc.pdf: `pypdf` package not found, please install it with `pip install pypdf`
+2025-04-10 10:39:43,813 - ERROR - \u274c Error processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p.pdf: `pypdf` package not found, please install it with `pip install pypdf`
+2025-04-10 10:39:44,438 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 10:42:42,712 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 10:42:43,575 - INFO - Use pytorch device_name: cpu
+2025-04-10 10:42:43,575 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 10:42:48,542 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 10:43:02,439 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 10:43:02,488 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 10:43:02,492 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 10:43:03,038 - INFO - Use pytorch device_name: cpu
+2025-04-10 10:43:03,038 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 10:43:03,081 - INFO - Use pytorch device_name: cpu
+2025-04-10 10:43:03,081 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 10:43:03,083 - INFO - Use pytorch device_name: cpu
+2025-04-10 10:43:03,083 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 10:43:12,037 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 10:43:12,055 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 10:43:12,219 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use.pdf...
+2025-04-10 10:43:12,244 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p.pdf...
+2025-04-10 10:43:12,325 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 10:43:12,552 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc.pdf...
+2025-04-10 10:43:23,492 - INFO - Successfully processed C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc.pdf
+2025-04-10 10:46:12,554 - INFO - Successfully processed C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p.pdf
+2025-04-10 10:46:13,702 - INFO - Successfully processed C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use.pdf
+2025-04-10 15:00:11,095 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 15:00:11,860 - INFO - Use pytorch device_name: cpu
+2025-04-10 15:00:11,860 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 15:00:16,299 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 15:01:32,425 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 15:01:33,190 - INFO - Use pytorch device_name: cpu
+2025-04-10 15:01:33,190 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 15:01:37,585 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 15:01:49,092 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-10 15:01:49,591 - INFO - Use pytorch device_name: cpu
+2025-04-10 15:01:49,591 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-10 15:01:54,614 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-10 15:01:54,772 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc.pdf...
+2025-04-10 15:01:58,366 - INFO - Successfully processed C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc.pdf
+2025-04-16 10:50:57,576 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-16 10:50:58,525 - INFO - Use pytorch device_name: cpu
+2025-04-16 10:50:58,525 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-16 10:51:03,489 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-16 10:57:50,976 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-16 10:57:51,746 - INFO - Use pytorch device_name: cpu
+2025-04-16 10:57:51,746 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-16 10:57:55,820 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-16 10:58:08,990 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-16 10:58:09,498 - INFO - Use pytorch device_name: cpu
+2025-04-16 10:58:09,498 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-16 10:58:14,597 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-16 10:58:14,782 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf...
+2025-04-16 10:58:19,708 - INFO - Successfully processed C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf
+2025-04-16 13:07:12,035 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-16 13:07:12,835 - INFO - Use pytorch device_name: cpu
+2025-04-16 13:07:12,835 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-16 13:07:17,274 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-16 13:07:54,811 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-16 13:07:55,621 - INFO - Use pytorch device_name: cpu
+2025-04-16 13:07:55,621 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-16 13:07:59,784 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-16 13:08:11,883 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-16 13:08:12,393 - INFO - Use pytorch device_name: cpu
+2025-04-16 13:08:12,393 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-16 13:08:16,887 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-16 13:08:17,056 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1) (1).pdf...
+2025-04-16 13:08:23,745 - INFO - Successfully processed C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1) (1).pdf
+2025-04-16 16:47:23,648 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-16 16:47:24,430 - INFO - Use pytorch device_name: cpu
+2025-04-16 16:47:24,430 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-16 16:47:29,094 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-16 16:48:59,092 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-16 16:48:59,832 - INFO - Use pytorch device_name: cpu
+2025-04-16 16:48:59,832 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-16 16:49:05,351 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-16 16:49:17,134 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-16 16:49:17,643 - INFO - Use pytorch device_name: cpu
+2025-04-16 16:49:17,643 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-16 16:49:23,137 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-16 16:49:23,306 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf...
+2025-04-16 16:49:26,224 - INFO - Successfully processed C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf
+2025-04-18 13:05:07,896 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 13:05:08,866 - INFO - Use pytorch device_name: cpu
+2025-04-18 13:05:08,866 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 13:05:13,779 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 13:05:39,687 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 13:05:40,424 - INFO - Use pytorch device_name: cpu
+2025-04-18 13:05:40,424 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 13:05:44,266 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 13:05:57,165 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 13:05:57,725 - INFO - Use pytorch device_name: cpu
+2025-04-18 13:05:57,725 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 13:06:09,531 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 13:06:09,763 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf...
+2025-04-18 13:06:09,944 - ERROR - \u274c Error processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf: Chroma.__init__() got an unexpected keyword argument 'hnsw_ef_construction'
+2025-04-18 13:07:00,523 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 13:07:01,266 - INFO - Use pytorch device_name: cpu
+2025-04-18 13:07:01,266 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 13:07:08,614 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 13:07:20,559 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 13:07:21,071 - INFO - Use pytorch device_name: cpu
+2025-04-18 13:07:21,071 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 13:07:29,784 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 13:07:29,945 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf...
+2025-04-18 13:07:30,075 - ERROR - \u274c Error processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf: Chroma.__init__() got an unexpected keyword argument 'hnsw_ef_construction'
+2025-04-18 13:08:19,282 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 13:08:20,027 - INFO - Use pytorch device_name: cpu
+2025-04-18 13:08:20,027 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 13:08:27,221 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 13:08:39,001 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 13:08:39,507 - INFO - Use pytorch device_name: cpu
+2025-04-18 13:08:39,507 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 13:08:54,103 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 13:08:54,268 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf...
+2025-04-18 13:08:57,257 - INFO - Successfully processed C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf
+2025-04-18 13:15:45,780 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 13:15:46,567 - INFO - Use pytorch device_name: cpu
+2025-04-18 13:15:46,567 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 13:15:52,191 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 13:16:49,468 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 13:16:50,237 - INFO - Use pytorch device_name: cpu
+2025-04-18 13:16:50,237 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 13:16:54,247 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 13:17:06,347 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 13:17:06,858 - INFO - Use pytorch device_name: cpu
+2025-04-18 13:17:06,858 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 13:17:10,767 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 13:17:10,941 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf...
+2025-04-18 13:17:11,082 - ERROR - \u274c Error processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf: 'dict' object has no attribute 'persist_directory'
+2025-04-18 13:18:46,852 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 13:18:47,602 - INFO - Use pytorch device_name: cpu
+2025-04-18 13:18:47,602 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 13:18:55,289 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 13:19:07,101 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 13:19:07,617 - INFO - Use pytorch device_name: cpu
+2025-04-18 13:19:07,617 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 13:19:12,351 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 13:19:12,511 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf...
+2025-04-18 13:19:15,758 - INFO - Successfully processed C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf
+2025-04-18 14:24:43,911 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 14:24:44,687 - INFO - Use pytorch device_name: cpu
+2025-04-18 14:24:44,687 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 14:24:49,410 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 14:25:06,995 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 14:25:07,750 - INFO - Use pytorch device_name: cpu
+2025-04-18 14:25:07,750 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 14:25:14,035 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 14:25:26,018 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 14:25:26,525 - INFO - Use pytorch device_name: cpu
+2025-04-18 14:25:26,525 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 14:25:31,582 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 14:25:31,745 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf...
+2025-04-18 14:25:34,810 - INFO - Successfully processed C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf
+2025-04-18 18:30:19,599 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 18:30:20,344 - INFO - Use pytorch device_name: cpu
+2025-04-18 18:30:20,344 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 18:30:24,660 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 18:30:41,649 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 18:30:42,413 - INFO - Use pytorch device_name: cpu
+2025-04-18 18:30:42,413 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 18:30:49,987 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 18:31:15,225 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 18:31:15,969 - INFO - Use pytorch device_name: cpu
+2025-04-18 18:31:15,970 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 18:31:19,771 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 18:37:30,241 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 18:37:30,984 - INFO - Use pytorch device_name: cpu
+2025-04-18 18:37:30,985 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 18:37:52,619 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 18:38:40,428 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 18:38:41,170 - INFO - Use pytorch device_name: cpu
+2025-04-18 18:38:41,170 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 18:38:48,808 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 18:39:00,697 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-18 18:39:01,202 - INFO - Use pytorch device_name: cpu
+2025-04-18 18:39:01,202 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-18 18:39:05,578 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-18 18:39:05,740 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf...
+2025-04-18 18:39:08,816 - INFO - Successfully processed C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf
+2025-04-21 10:53:03,947 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-21 10:53:04,611 - INFO - Use pytorch device_name: cpu
+2025-04-21 10:53:04,611 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-21 10:53:09,452 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-21 10:53:30,918 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-21 10:53:31,499 - INFO - Use pytorch device_name: cpu
+2025-04-21 10:53:31,499 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-21 10:53:35,759 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-21 10:57:55,816 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-21 10:57:56,555 - INFO - Use pytorch device_name: cpu
+2025-04-21 10:57:56,555 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-21 10:58:02,198 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-21 11:03:57,179 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-04-21 11:03:57,770 - INFO - Use pytorch device_name: cpu
+2025-04-21 11:03:57,770 - INFO - Load pretrained SentenceTransformer: hkunlp/instructor-large
+2025-04-21 11:04:02,398 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-04-21 11:04:02,562 - INFO - Processing C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf...
+2025-04-21 11:04:05,655 - INFO - Successfully processed C:\Users\Test\Documents\GitHub\agent-AI\AI-agent\source_documents\highwaydoc (1).pdf
+2025-05-28 17:39:30,550 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-05-28 17:39:31,207 - INFO - Use pytorch device_name: cpu
+2025-05-28 17:39:31,207 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-05-28 17:39:36,018 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-05-28 17:40:08,307 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-05-28 17:40:08,886 - INFO - Use pytorch device_name: cpu
+2025-05-28 17:40:08,886 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-05-28 17:40:14,394 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-05-28 17:40:14,562 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf...
+2025-05-28 17:40:19,235 - INFO - Successfully processed C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf
+2025-05-28 17:40:19,235 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf...
+2025-05-28 17:40:23,706 - INFO - Successfully processed C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf
+2025-05-28 17:40:23,706 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Document 1 (3).pdf...
+2025-05-28 17:40:23,928 - INFO - Successfully processed C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Document 1 (3).pdf
+2025-05-28 17:40:23,928 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\epjconf_efm2016_02085.pdf...
+2025-05-28 17:40:25,712 - INFO - Successfully processed C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\epjconf_efm2016_02085.pdf
+2025-05-28 17:40:25,712 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\tempreature.pdf...
+2025-05-28 17:40:25,913 - INFO - Successfully processed C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\tempreature.pdf
+2025-06-02 14:41:24,457 - INFO - Use pytorch device_name: cpu
+2025-06-02 14:41:24,463 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-02 14:41:28,702 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-02 14:41:45,722 - INFO - Use pytorch device_name: cpu
+2025-06-02 14:41:45,722 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-02 14:41:49,948 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-02 14:41:50,043 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf...
+2025-06-02 14:41:51,032 - ERROR - \u274c Error processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf: Invalid HNSW parameters: Invalid metadata: unknown field `hnsw:ef`, expected one of `hnsw:space`, `hnsw:construction_ef`, `hnsw:search_ef`, `hnsw:M`, `hnsw:num_threads`, `hnsw:resize_factor`, `hnsw:sync_threshold`, `hnsw:batch_size` at line 1 column 24
+2025-06-02 14:41:51,033 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf...
+2025-06-02 14:41:51,559 - ERROR - \u274c Error processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf: Invalid HNSW parameters: Invalid metadata: unknown field `hnsw:ef`, expected one of `hnsw:space`, `hnsw:construction_ef`, `hnsw:search_ef`, `hnsw:M`, `hnsw:num_threads`, `hnsw:resize_factor`, `hnsw:sync_threshold`, `hnsw:batch_size` at line 1 column 24
+2025-06-02 14:41:51,559 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\epjconf_efm2016_02085.pdf...
+2025-06-02 14:41:51,821 - ERROR - \u274c Error processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\epjconf_efm2016_02085.pdf: Invalid HNSW parameters: Invalid metadata: unknown field `hnsw:ef`, expected one of `hnsw:space`, `hnsw:construction_ef`, `hnsw:search_ef`, `hnsw:M`, `hnsw:num_threads`, `hnsw:resize_factor`, `hnsw:sync_threshold`, `hnsw:batch_size` at line 1 column 24
+2025-06-02 14:41:51,822 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\pelvis trigger.pdf...
+2025-06-02 14:41:51,924 - ERROR - \u274c Error processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\pelvis trigger.pdf: Invalid HNSW parameters: Invalid metadata: unknown field `hnsw:ef`, expected one of `hnsw:space`, `hnsw:construction_ef`, `hnsw:search_ef`, `hnsw:M`, `hnsw:num_threads`, `hnsw:resize_factor`, `hnsw:sync_threshold`, `hnsw:batch_size` at line 1 column 24
+2025-06-02 14:41:51,924 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\tempreature.pdf...
+2025-06-02 14:41:52,012 - ERROR - \u274c Error processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\tempreature.pdf: Invalid HNSW parameters: Invalid metadata: unknown field `hnsw:ef`, expected one of `hnsw:space`, `hnsw:construction_ef`, `hnsw:search_ef`, `hnsw:M`, `hnsw:num_threads`, `hnsw:resize_factor`, `hnsw:sync_threshold`, `hnsw:batch_size` at line 1 column 10
+2025-06-02 14:44:07,451 - INFO - Use pytorch device_name: cpu
+2025-06-02 14:44:07,451 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-02 14:44:11,479 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-02 14:44:24,165 - INFO - Use pytorch device_name: cpu
+2025-06-02 14:44:24,165 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-02 14:44:28,880 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-02 14:44:28,968 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf...
+2025-06-02 14:44:33,634 - INFO - Successfully processed C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf
+2025-06-02 14:44:33,634 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf...
+2025-06-02 14:44:38,167 - INFO - Successfully processed C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf
+2025-06-02 14:44:38,167 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\epjconf_efm2016_02085.pdf...
+2025-06-02 14:44:39,996 - INFO - Successfully processed C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\epjconf_efm2016_02085.pdf
+2025-06-02 14:44:39,997 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\pelvis trigger.pdf...
+2025-06-02 14:44:40,187 - INFO - Successfully processed C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\pelvis trigger.pdf
+2025-06-02 14:44:40,188 - INFO - Processing C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\tempreature.pdf...
+2025-06-02 14:44:40,385 - INFO - Successfully processed C:\Users\Test\Downloads\AI-agent-AI_agent_gemini\AI-agent-AI_agent_gemini\source_documents\tempreature.pdf
+2025-06-12 14:51:59,654 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-06-12 14:52:00,488 - INFO - Use pytorch device_name: cpu
+2025-06-12 14:52:00,488 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-12 14:52:07,788 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-12 14:53:27,228 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-06-12 14:53:28,023 - INFO - Use pytorch device_name: cpu
+2025-06-12 14:53:28,023 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-12 14:53:32,024 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-12 14:53:56,430 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-06-12 14:53:57,214 - INFO - Use pytorch device_name: cpu
+2025-06-12 14:53:57,214 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-12 14:54:04,923 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-12 14:54:05,088 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf...
+2025-06-12 14:54:09,576 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf: 'dict' object has no attribute 'dimensionality'
+2025-06-12 14:54:09,576 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf...
+2025-06-12 14:54:14,169 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf: 'dict' object has no attribute 'dimensionality'
+2025-06-12 14:54:14,169 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf...
+2025-06-12 14:54:15,913 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf: 'dict' object has no attribute 'dimensionality'
+2025-06-12 14:54:15,913 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf...
+2025-06-12 14:54:16,094 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf: 'dict' object has no attribute 'dimensionality'
+2025-06-12 14:54:16,094 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf...
+2025-06-12 14:54:16,353 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf: 'dict' object has no attribute 'dimensionality'
+2025-06-12 14:57:14,753 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-06-12 14:57:15,530 - INFO - Use pytorch device_name: cpu
+2025-06-12 14:57:15,530 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-12 14:57:18,905 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-12 14:57:19,079 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf...
+2025-06-12 14:57:23,040 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf: 'dict' object has no attribute 'dimensionality'
+2025-06-12 14:57:23,040 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf...
+2025-06-12 14:57:27,526 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf: 'dict' object has no attribute 'dimensionality'
+2025-06-12 14:57:27,526 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf...
+2025-06-12 14:57:29,235 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf: 'dict' object has no attribute 'dimensionality'
+2025-06-12 14:57:29,235 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf...
+2025-06-12 14:57:29,398 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf: 'dict' object has no attribute 'dimensionality'
+2025-06-12 14:57:29,398 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf...
+2025-06-12 14:57:29,627 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf: 'dict' object has no attribute 'dimensionality'
+2025-06-12 15:04:06,502 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-06-12 15:04:07,305 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-12 15:04:13,028 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf...
+2025-06-12 15:04:17,691 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf
+2025-06-12 15:04:17,691 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf...
+2025-06-12 15:04:22,588 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf
+2025-06-12 15:04:22,588 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf...
+2025-06-12 15:04:24,502 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf
+2025-06-12 15:04:24,502 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf...
+2025-06-12 15:04:24,662 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf
+2025-06-12 15:04:24,662 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf...
+2025-06-12 15:04:24,878 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf
+2025-06-12 15:48:49,754 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-06-12 15:48:50,447 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-12 15:48:57,846 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf...
+2025-06-12 15:49:02,094 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf: Error in compaction: Error reading from metadata segment reader: error occurred while decoding column 0: mismatched types; Rust type `u64` (as SQL type `INTEGER`) is not compatible with SQL type `BLOB` 
+2025-06-12 15:49:02,094 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf...
+2025-06-12 15:49:06,762 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf: Error in compaction: Error reading from metadata segment reader: error occurred while decoding column 0: mismatched types; Rust type `u64` (as SQL type `INTEGER`) is not compatible with SQL type `BLOB` 
+2025-06-12 15:49:06,764 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf...
+2025-06-12 15:49:08,504 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf: Error in compaction: Error reading from metadata segment reader: error occurred while decoding column 0: mismatched types; Rust type `u64` (as SQL type `INTEGER`) is not compatible with SQL type `BLOB` 
+2025-06-12 15:49:08,504 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Intelligent Driving Posture Experiences.pdf...
+2025-06-12 15:49:08,710 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\Intelligent Driving Posture Experiences.pdf: Error in compaction: Error reading from metadata segment reader: error occurred while decoding column 0: mismatched types; Rust type `u64` (as SQL type `INTEGER`) is not compatible with SQL type `BLOB` 
+2025-06-12 15:49:08,710 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf...
+2025-06-12 15:49:08,864 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf: Error in compaction: Error reading from metadata segment reader: error occurred while decoding column 0: mismatched types; Rust type `u64` (as SQL type `INTEGER`) is not compatible with SQL type `BLOB` 
+2025-06-12 15:49:08,864 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf...
+2025-06-12 15:49:09,058 - ERROR - \u274c Error processing C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf: Error in compaction: Error reading from metadata segment reader: error occurred while decoding column 0: mismatched types; Rust type `u64` (as SQL type `INTEGER`) is not compatible with SQL type `BLOB` 
+2025-06-12 15:49:28,251 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-06-12 15:49:28,878 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-12 15:50:54,795 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-06-12 15:50:55,460 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-12 15:50:58,965 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf...
+2025-06-12 15:51:03,416 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf
+2025-06-12 15:51:03,416 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf...
+2025-06-12 15:51:08,195 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf
+2025-06-12 15:51:08,195 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf...
+2025-06-12 15:51:10,085 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf
+2025-06-12 15:51:10,085 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Intelligent Driving Posture Experiences.pdf...
+2025-06-12 15:51:10,277 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\Intelligent Driving Posture Experiences.pdf
+2025-06-12 15:51:10,277 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf...
+2025-06-12 15:51:10,465 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf
+2025-06-12 15:51:10,465 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf...
+2025-06-12 15:51:10,720 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf
+2025-06-12 16:20:27,199 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-06-12 16:20:27,848 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-12 16:35:05,225 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-06-12 16:35:05,952 - INFO - Use pytorch device_name: cpu
+2025-06-12 16:35:05,952 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-12 16:35:06,332 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-12 16:35:06,412 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf...
+2025-06-12 16:35:06,911 - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000021688FC2550>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:06,911 - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000021689106C10>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:07,059 - INFO - Backing off send_request(...) for 0.7s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002168910CF10>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-06-12 16:35:07,742 - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216890A6B50>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:07,743 - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216890A4A90>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:07,744 - INFO - Backing off send_request(...) for 1.4s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002168924ED10>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-06-12 16:35:09,143 - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216890A6110>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:09,143 - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002168924FB50>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:09,143 - INFO - Backing off send_request(...) for 0.3s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002168924C410>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-06-12 16:35:09,403 - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216892564D0>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:09,403 - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000021689254310>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:09,409 - ERROR - Giving up send_request(...) after 4 tries (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000021689255B10>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-06-12 16:35:09,921 - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000021689257210>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:09,921 - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000021689257E90>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:09,921 - INFO - Backing off send_request(...) for 0.8s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216890C2890>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-06-12 16:35:10,723 - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000021689257650>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:10,723 - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216876C9B10>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:10,723 - INFO - Backing off send_request(...) for 1.6s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002168924F490>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-06-12 16:35:11,489 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf
+2025-06-12 16:35:11,489 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf...
+2025-06-12 16:35:12,328 - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216892E1E90>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:12,329 - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216892E9350>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:12,333 - INFO - Backing off send_request(...) for 3.9s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216892EAE50>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-06-12 16:35:16,216 - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216892EBE50>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:16,216 - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216892E8990>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:16,216 - ERROR - Giving up send_request(...) after 4 tries (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216892EBD10>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-06-12 16:35:16,728 - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216892F5AD0>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:16,728 - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216892F6790>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:16,728 - INFO - Backing off send_request(...) for 0.8s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216892F6310>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-06-12 16:35:17,076 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf
+2025-06-12 16:35:17,076 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf...
+2025-06-12 16:35:17,569 - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216893130D0>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:17,570 - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002168931C110>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:17,573 - INFO - Backing off send_request(...) for 1.6s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002168931F790>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-06-12 16:35:19,129 - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000021689321410>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:19,129 - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000021689320490>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:19,129 - INFO - Backing off send_request(...) for 1.1s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000021689322810>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-06-12 16:35:19,258 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf
+2025-06-12 16:35:19,258 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Intelligent Driving Posture Experiences.pdf...
+2025-06-12 16:35:19,593 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\Intelligent Driving Posture Experiences.pdf
+2025-06-12 16:35:19,593 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf...
+2025-06-12 16:35:19,895 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf
+2025-06-12 16:35:19,895 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf...
+2025-06-12 16:35:20,205 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf
+2025-06-12 16:35:20,248 - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216C778FD10>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:20,248 - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000216C77AD550>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")': /batch/
+2025-06-12 16:35:20,248 - ERROR - Giving up send_request(...) after 4 tries (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002168910E210>: Failed to resolve 'us.i.posthog.com' ([Errno 11001] getaddrinfo failed)")))
+2025-06-12 17:28:28,506 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-06-12 17:28:29,165 - INFO - Use pytorch device_name: cpu
+2025-06-12 17:28:29,165 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-12 17:28:31,706 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-12 17:29:39,328 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-06-12 17:29:40,084 - INFO - Use pytorch device_name: cpu
+2025-06-12 17:29:40,084 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-12 17:29:42,898 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-12 17:29:42,984 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf...
+2025-06-12 17:29:47,557 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\Assessing_Car_Seat_Posture_through_Comfort_and_Use (2).pdf
+2025-06-12 17:29:47,557 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf...
+2025-06-12 17:29:52,551 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\Car_seat_impact_on_drivers_sitting_behavior_and_p (1).pdf
+2025-06-12 17:29:52,551 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf...
+2025-06-12 17:29:54,522 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\epjconf_efm2016_02085.pdf
+2025-06-12 17:29:54,522 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\Intelligent Driving Posture Experiences (1).pdf...
+2025-06-12 17:29:54,821 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\Intelligent Driving Posture Experiences (1).pdf
+2025-06-12 17:29:54,821 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf...
+2025-06-12 17:29:55,059 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\pelvis trigger.pdf
+2025-06-12 17:29:55,059 - INFO - Processing C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf...
+2025-06-12 17:29:55,338 - INFO - Successfully processed C:\Users\Test\Documents\MCP\source_documents\tempreature and ventiltion.pdf
+2025-06-12 18:29:36,973 - WARNING - From C:\Users\Test\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2025-06-12 18:29:37,612 - INFO - Use pytorch device_name: cpu
+2025-06-12 18:29:37,612 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-06-12 18:29:40,969 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.

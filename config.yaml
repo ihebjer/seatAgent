@@ -1,0 +1,70 @@
+# Network Settings
+host: '127.0.0.1'
+port: 5342
+
+#server settings
+server:
+  port: 5000
+
+# File Paths
+OOP: "C:/Users/Test/Downloads/AI-agent-AI_agent_gemini/AI-agent-AI_agent_gemini/SeatDATA/Files/oop_classifier.pkl"
+csv_file: "C:/Users/Test/Downloads/AI-agent-AI_agent_gemini/AI-agent-AI_agent_gemini/SeatDATA/Files//sensor_data.csv"
+metadata: "C:/Users/Test/Documents/MCP/SeatData/metadata.yaml"
+
+# Model Settings
+model:
+  path: "google/gemma-2-2b"
+  gpu_layers: 32
+  batch_size: 8
+  context_window: 4096
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+
+# Posture Analysis Settings
+posture:
+  fatigue_thresholds:
+    moderate_min: 1
+    moderate_max: 8
+    high: 8
+  pressure_thresholds:
+    backrest_low: 10000
+    cushion_high: 80000
+
+# Directory Settings
+directories:
+  root: ""  # Will be set programmatically
+  source_docs: "source_documents"
+  processed_docs: "processed_docs"
+  chroma_db: "vector_db"
+  logs: "logs"
+
+
+
+
+
+default_response_structure:
+  sound:
+    level: 0
+  vibe:
+    level-backrest: 0
+    level-cushion: 0
+    experience: "exp-1"
+  penuamtic:
+    adjustement:
+      lumbar:
+        direction: "UP"
+        percentage: 0
+      backrest-bolster: 0
+      cushion-bolster: 0
+    massage:
+      is_active: false
+      experience: "exp-1"
+      intensity: "level-0"
+  motors:
+    is_active: false
+    Track: 0
+    Height: 0
+    Backrest: 0
+    SeatTilt: 0
+    Uba: 0
+    Headrest: 0
+  ventilation: "level-0"
