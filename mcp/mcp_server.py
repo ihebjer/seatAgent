@@ -1,788 +1,228 @@
+import os
+import logging
+from typing import Dict, Any
 from fastapi import FastAPI
 from fastmcp import FastMCP
 import uvicorn
-import logging
-from typing import Dict, List, Any
 
-# Logging setup
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
-
-app = FastAPI(title="Motor MCP Server")
-mcp = FastMCP(app)
-
-# === Motor bounds ===
-MOTOR_MIN = 0
-MOTOR_MAX = 100
-MOTOR_STEP = 10
-
-def clamp(value: int, min_value: int = MOTOR_MIN, max_value: int = MOTOR_MAX) -> int:
-    return max(min_value, min(value, max_value))
-
-# === Thermal and Ventilation Controls ===
-
-@mcp.tool()
-def adjust_thermal(heatingLevel: int):
-    """
-    Adjust the thermal/heating level in the vehicle.
+class MotorControlServer:
+    """MCP Server for motor control with thermal and ventilation features."""
     
-    Args:
-        heatingLevel: Heating level from 0 to 100
-    """
-    heatingLevel = clamp(heatingLevel)
-    logging.info("🔥 Adjusting thermal level to %d", heatingLevel)
-    return {
-        "status": "thermal adjusted",
-        "heatingLevel": heatingLevel,
-        "message": f"Thermal level set to {heatingLevel}"
-    }
+    # Constants
+    MOTOR_MIN = 0
+    MOTOR_MAX = 100
+    MOTOR_STEP = 10
+    
+    def __init__(self):
+        """Initialize the server with FastAPI and FastMCP."""
+        self.app = FastAPI(title="Motor MCP Server")
+        self.mcp = FastMCP(self.app)
+        self._setup_logging()
+        self._register_endpoints()
+        
+    def _setup_logging(self):
+        """Configure logging settings."""
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s - %(levelname)s - %(message)s"
+        )
+        self.logger = logging.getLogger(__name__)
+    
+    def _register_endpoints(self):
+        """Register all API endpoints."""
+        # Thermal/Ventilation
+        self.mcp.tool()(self.adjust_thermal)
+        self.mcp.tool()(self.adjust_ventilation)
+        
+        # Preset Experiences
+        self.mcp.tool()(self.adjust_highway_experience)
+        self.mcp.tool()(self.adjust_city_experience)
+        
+        # Motor Controls
+        motors = [
+            ('track', ['forward', 'backward']),
+            ('height', ['up', 'down']),
+            ('backrest', ['forward', 'backward']),
+            ('seattilt', ['up', 'down']),
+            ('uba', ['forward', 'backward']),
+            ('headrest', ['forward', 'backward'])
+        ]
+        
+        for motor, directions in motors:
+            for direction in directions:
+                method_name = f"move_{motor}_{direction}"
+                setattr(self, method_name, self._create_motor_method(motor, direction))
+                self.mcp.tool()(getattr(self, method_name))
+        
+        # Tool discovery
+        self.app.get("/mcp/tools")(self.get_available_tools)
+    
+    def _clamp(self, value: int, min_val: int = MOTOR_MIN, max_val: int = MOTOR_MAX) -> int:
+        """Clamp value between min and max bounds."""
+        return max(min_val, min(value, max_val))
+    
+    def _create_motor_method(self, motor: str, direction: str):
+        """Dynamically create motor control methods."""
+        def motor_method(
+            current_value: int, 
+            step: int = self.MOTOR_STEP, 
+            new_value: int = None
+        ) -> Dict[str, Any]:
+            """Generated motor control method."""
+            step = self.MOTOR_STEP  # Force fixed step size
+            
+            if new_value is None:
+                new_value = current_value + step if 'forward' in direction or 'up' in direction else current_value - step
+            
+            new_value = self._clamp(new_value)
+            action = direction.replace('_', ' ')
+            
+            self.logger.info(f"🔄 Moving {motor} {action} from {current_value} to {new_value}")
+            
+            return {
+                "status": f"{motor} moved {action}",
+                "motor": motor,
+                "previous_value": current_value,
+                "new_value": new_value,
+                "step": step,
+                "message": f"{motor.capitalize()} moved {action} from {current_value} to {new_value}"
+            }
+        
+        # Add docstring
+        doc_action = "closer to" if "forward" in direction else "away from" if "backward" in direction else direction
+        motor_method.__doc__ = f"""
+        Move the {motor} {direction} ({doc_action} {'steering wheel' if motor == 'track' else 'head' if motor == 'headrest' else 'default position'})
+        
+        Args:
+            current_value: Current {motor} position (0-100)
+            step: Movement step size (fixed at 10)
+            new_value: Target position (0-100)
+        """
+        return motor_method
 
-@mcp.tool()
-def adjust_ventilation(ventilationLevel: int):
-    """
-    Adjust the ventilation level in the vehicle.
-    
-    Args:
-        ventilationLevel: Ventilation level from 0 to 100
-    """
-    ventilationLevel = clamp(ventilationLevel)
-    logging.info("💨 Adjusting ventilation level to %d", ventilationLevel)
-    return {
-        "status": "ventilation adjusted",
-        "ventilationLevel": ventilationLevel,
-        "message": f"Ventilation level set to {ventilationLevel}"
-    }
-
-# === Preset Experiences ===
-
-@mcp.tool()
-def adjust_highway_experience(backrest: int, track: int, tilt: int):
-    """
-    Activate highway driving experience with optimized seat position.
-    
-    Args:
-        backrest: Backrest position (0-100)
-        track: Track/forward-backward position (0-100)  
-        tilt: Seat tilt angle (0-100)
-    """
-    backrest = clamp(backrest)
-    track = clamp(track)
-    tilt = clamp(tilt)
-    
-    logging.info("🛣️ Activating highway experience: backrest=%d, track=%d, tilt=%d",
-                 backrest, track, tilt)
-    return {
-        "status": "highway experience activated",
-        "motors": {
-            "backrest": backrest,
-            "track": track,
-            "seatTilt": tilt
-        },
-        "message": f"Highway experience activated with backrest at {backrest}, track at {track}, tilt at {tilt}"
-    }
-
-@mcp.tool()
-def adjust_city_experience(backrest: int, track: int, tilt: int):
-    """
-    Activate city driving experience with optimized seat position.
-    
-    Args:
-        backrest: Backrest position (0-100)
-        track: Track/forward-backward position (0-100)
-        tilt: Seat tilt angle (0-100)
-    """
-    backrest = clamp(backrest)
-    track = clamp(track)
-    tilt = clamp(tilt)
-    
-    logging.info("🏙️ Activating city experience: backrest=%d, track=%d, tilt=%d",
-                 backrest, track, tilt)
-    return {
-        "status": "city experience activated",
-        "motors": {
-            "backrest": backrest,
-            "track": track,
-            "tilt": tilt
-        },
-        "message": f"City experience activated with backrest at {backrest}, track at {track}, tilt at {tilt}"
-    }
-
-# === Individual Motor Controls ===
-
-# Track Motor Controls
-@mcp.tool()
-def move_track_forward(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
-    """
-    Move the seat track forward (away from steering wheel).
-    
-    Args:
-        current_value: Current track position (0-100)
-        step: Movement step size (fixed at 10)
-        new_value: Target position (0-100)
-    """
-    # Force step to be MOTOR_STEP
-    step = MOTOR_STEP
-    
-    if new_value is None:
-        new_value = current_value + step
-    new_value = clamp(new_value)
-    logging.info(f"➡️ Moving Track forward from {current_value} to {new_value}")
-    return {
-        "status": "Track moved forward",
-        "motor": "Track",
-        "previous_value": current_value,
-        "new_value": new_value,
-        "step": step,
-        "message": f"Track moved forward from {current_value} to {new_value}"
-    }
-
-@mcp.tool()
-def move_track_backward(current_value: int,step: int = MOTOR_STEP, new_value: int = None):
-    """
-    Move the seat track backward (toward steering wheel).
-    
-    Args:
-        current_value: Current track position (0-100)
-    """
-    if new_value is None:
-        new_value = current_value - step
-    new_value = clamp(new_value)
-    logging.info(f"⬅️ Moving Track backward from {current_value} to {new_value}")
-    return {
-        "status": "Track moved backward",
-        "motor": "Track",
-        "previous_value": current_value,
-        "new_value": new_value,
-        "step": step,
-        "message": f"Track moved backward from {current_value} to {new_value}"
-    }
-
-# Height Motor Controls
-@mcp.tool()
-def move_height_up(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
-    """
-    Move the seat height up.
-    
-    Args:
-        current_value: Current height position (0-100)
-    """
-    if new_value is None:
-        new_value = current_value - step
-    new_value = clamp(new_value)
-    logging.info(f"⬅️ Moving Track up from {current_value} to {new_value}")
-    return {
-        "status": "height moved up",
-        "motor": "height",
-        "previous_value": current_value,
-        "new_value": new_value,
-        "step": step,
-        "message": f"Track moved backward from {current_value} to {new_value}"
-    }
-
-@mcp.tool()
-def move_height_down(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
-    """
-    Move the seat height down.
-    
-    Args:
-        current_value: Current height position (0-100)
-    """
-    if new_value is None:
-        new_value = current_value - step
-    new_value = clamp(new_value)
-    logging.info(f"⬅️ Moving height down from {current_value} to {new_value}")
-    return {
-        "status": "height moved down",
-        "motor": "height",
-        "previous_value": current_value,
-        "new_value": new_value,
-        "step": step,
-        "message": f"Track moved backward from {current_value} to {new_value}"
-    }
-
-# Backrest Motor Controls
-@mcp.tool()
-def move_backrest_forward(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
-    """
-    Move the backrest forward (more upright position).
-    
-    Args:
-        current_value: Current backrest position (0-100)
-    """
-    if new_value is None:
-        new_value = current_value - step
-    new_value = clamp(new_value)
-    logging.info(f"⬅️ Moving backrest forward from {current_value} to {new_value}")
-    return {
-        "status": "backrest moved forward",
-        "motor": "backrest",
-        "previous_value": current_value,
-        "new_value": new_value,
-        "step": step,
-        "message": f"Track moved backward from {current_value} to {new_value}"
-    }
-
-@mcp.tool()
-def move_backrest_backward(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
-    """
-    Move the backrest backward (more reclined position).
-    
-    Args:
-        current_value: Current backrest position (0-100)
-    """
-    if new_value is None:
-        new_value = current_value - step
-    new_value = clamp(new_value)
-    logging.info(f"⬅️ Moving backrest backward from {current_value} to {new_value}")
-    return {
-        "status": "backrest moved backward",
-        "motor": "backrest",
-        "previous_value": current_value,
-        "new_value": new_value,
-        "step": step,
-        "message": f"Track moved backward from {current_value} to {new_value}"
+    # Thermal/Ventilation Controls
+    def adjust_thermal(self, heatingLevel: int) -> Dict[str, Any]:
+        """Adjust the thermal/heating level in the vehicle."""
+        heatingLevel = self._clamp(heatingLevel)
+        self.logger.info("🔥 Adjusting thermal level to %d", heatingLevel)
+        return {
+            "status": "thermal adjusted",
+            "heatingLevel": heatingLevel,
+            "message": f"Thermal level set to {heatingLevel}"
         }
 
-# SeatTilt Motor Controls
-@mcp.tool()
-def move_seattilt_up(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
-    """
-    Tilt the seat up (front edge higher).
-    
-    Args:
-        current_value: Current seat tilt position (0-100)
-    """
-    if new_value is None:
-        new_value = current_value - step
-    new_value = clamp(new_value)
-    logging.info(f"⬅️ Moving seattilt up from {current_value} to {new_value}")
-    return {
-        "status": "seattilt moved up",
-        "motor": "seattilt",
-        "previous_value": current_value,
-        "new_value": new_value,
-        "step": step,
-        "message": f"Track moved backward from {current_value} to {new_value}"
+    def adjust_ventilation(self, ventilationLevel: int) -> Dict[str, Any]:
+        """Adjust the ventilation level in the vehicle."""
+        ventilationLevel = self._clamp(ventilationLevel)
+        self.logger.info("💨 Adjusting ventilation level to %d", ventilationLevel)
+        return {
+            "status": "ventilation adjusted",
+            "ventilationLevel": ventilationLevel,
+            "message": f"Ventilation level set to {ventilationLevel}"
         }
 
-@mcp.tool()
-def move_seattilt_down(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
-    """
-    Tilt the seat down (front edge lower).
-    
-    Args:
-        current_value: Current seat tilt position (0-100)
-    """
-    if new_value is None:
-        new_value = current_value - step
-    new_value = clamp(new_value)
-    logging.info(f"⬅️ Moving seattilt down from {current_value} to {new_value}")
-    return {
-        "status": "seattilt moved down",
-        "motor": "seattilt",
-        "previous_value": current_value,
-        "new_value": new_value,
-        "step": step,
-        "message": f"Track moved backward from {current_value} to {new_value}"
+    # Preset Experiences
+    def adjust_highway_experience(self, backrest: int, track: int, tilt: int) -> Dict[str, Any]:
+        """Activate highway driving experience with optimized seat position."""
+        backrest = self._clamp(backrest)
+        track = self._clamp(track)
+        tilt = self._clamp(tilt)
+        
+        self.logger.info("🛣️ Activating highway experience: backrest=%d, track=%d, tilt=%d",
+                         backrest, track, tilt)
+        return {
+            "status": "highway experience activated",
+            "motors": {"backrest": backrest, "track": track, "seatTilt": tilt},
+            "message": f"Highway experience with backrest={backrest}, track={track}, tilt={tilt}"
         }
 
+    def adjust_city_experience(self, backrest: int, track: int, tilt: int) -> Dict[str, Any]:
+        """Activate city driving experience with optimized seat position."""
+        backrest = self._clamp(backrest)
+        track = self._clamp(track)
+        tilt = self._clamp(tilt)
+        
+        self.logger.info("🏙️ Activating city experience: backrest=%d, track=%d, tilt=%d",
+                         backrest, track, tilt)
+        return {
+            "status": "city experience activated",
+            "motors": {"backrest": backrest, "track": track, "tilt": tilt},
+            "message": f"City experience with backrest={backrest}, track={track}, tilt={tilt}"
+        }
 
-# UBA Motor Controls
-@mcp.tool()
-def move_uba_forward(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
-    """
-    Move the UBA (Upper Back Adjustment) forward.
+    def get_available_tools(self) -> Dict[str, Any]:
+        """Return all available tools with descriptions."""
+        tools = [
+            self._create_tool_definition("adjust_thermal", "Adjust thermal level", {"heatingLevel": (0, 100)}),
+            self._create_tool_definition("adjust_ventilation", "Adjust ventilation level", {"ventilationLevel": (0, 100)}),
+            self._create_tool_definition(
+                "adjust_highway_experience",
+                "Activate highway driving experience",
+                {"backrest": (0, 100), "track": (0, 100), "tilt": (0, 100)}
+            ),
+            self._create_tool_definition(
+                "adjust_city_experience",
+                "Activate city driving experience",
+                {"backrest": (0, 100), "track": (0, 100), "tilt": (0, 100)}
+            )
+        ]
+        
+        # Add motor controls
+        motors = ['track', 'height', 'backrest', 'seattilt', 'uba', 'headrest']
+        directions = {
+            'track': ['forward', 'backward'],
+            'height': ['up', 'down'],
+            'backrest': ['forward', 'backward'],
+            'seattilt': ['up', 'down'],
+            'uba': ['forward', 'backward'],
+            'headrest': ['forward', 'backward']
+        }
+        
+        for motor in motors:
+            for direction in directions[motor]:
+                tools.append(
+                    self._create_tool_definition(
+                        f"move_{motor}_{direction}",
+                        f"Move {motor} {direction}",
+                        {"current_value": (0, 100), "step": (10, 10), "new_value": (0, 100)},
+                        required=["current_value"]
+                    )
+                )
+        
+        return {"tools": tools}
     
-    Args:
-        current_value: Current UBA position (0-100)
-    """
-    if new_value is None:
-        new_value = current_value - step
-    new_value = clamp(new_value)
-    logging.info(f"⬅️ Moving uba forward from {current_value} to {new_value}")
-    return {
-        "status": "uba moved forward",
-        "motor": "uba",
-        "previous_value": current_value,
-        "new_value": new_value,
-        "step": step,
-        "message": f"Track moved backward from {current_value} to {new_value}"
-    }
-
-@mcp.tool()
-def move_uba_backward(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
-    """
-    Move the UBA (Upper Back Adjustment) backward.
-    
-    Args:
-        current_value: Current UBA position (0-100)
-    """
-    if new_value is None:
-        new_value = current_value - step
-    new_value = clamp(new_value)
-    logging.info(f"⬅️ Moving uba backward from {current_value} to {new_value}")
-    return {
-        "status": "uba moved backward",
-        "motor": "uba",
-        "previous_value": current_value,
-        "new_value": new_value,
-        "step": step,
-        "message": f"Track moved backward from {current_value} to {new_value}"
-    }
-
-# Headrest Motor Controls
-@mcp.tool()
-def move_headrest_forward(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
-    """
-    Move the headrest forward (closer to head).
-    
-    Args:
-        current_value: Current headrest position (0-100)
-    """
-    if new_value is None:
-        new_value = current_value - step
-    new_value = clamp(new_value)
-    logging.info(f"⬅️ Moving headrest forward from {current_value} to {new_value}")
-    return {
-        "status": "headrest moved forward",
-        "motor": "headrest",
-        "previous_value": current_value,
-        "new_value": new_value,
-        "step": step,
-        "message": f"Track moved backward from {current_value} to {new_value}"
-    }  
-
-@mcp.tool()
-def move_headrest_backward(current_value: int, step: int = MOTOR_STEP, new_value: int = None):
-    """
-    Move the headrest backward (away from head).
-    
-    Args:
-        current_value: Current headrest position (0-100)
-    """
-    if new_value is None:
-        new_value = current_value - step
-    new_value = clamp(new_value)
-    logging.info(f"⬅️ Moving headrest backward from {current_value} to {new_value}")
-    return {
-        "status": "headrest moved backward",
-        "motor": "headrest",
-        "previous_value": current_value,
-        "new_value": new_value,
-        "step": step,
-        "message": f"Track moved backward from {current_value} to {new_value}"  
-    }
-
-# === Tool Discovery Endpoint ===
-
-@app.get("/mcp/tools")
-async def get_available_tools():
-    """Return all available tools with their descriptions and parameters"""
-    
-    tools_definitions = [
-        # --- Already defined tools, repeated for context ---
-        {
-            "name": "adjust_thermal",
-            "description": "Adjust the thermal/heating level in the vehicle",
+    def _create_tool_definition(self, name: str, description: str, params: Dict[str, tuple], required=None):
+        """Generate tool definition dictionary."""
+        if required is None:
+            required = list(params.keys())
+            
+        properties = {}
+        for param, (min_val, max_val) in params.items():
+            properties[param] = {
+                "type": "integer",
+                "description": f"{param.replace('_', ' ')} ({min_val}-{max_val})",
+                "minimum": min_val,
+                "maximum": max_val
+            }
+            if param == "step":
+                properties[param]["default"] = 10
+                properties[param]["enum"] = [10]
+        
+        return {
+            "name": name,
+            "description": description,
             "parameters": {
                 "type": "object",
-                "properties": {
-                    "heatingLevel": {
-                        "type": "integer",
-                        "description": "Heating level from 0 to 100",
-                        "minimum": 0,
-                        "maximum": 100
-                    }
-                },
-                "required": ["heatingLevel"]
-            }
-        },
-        {
-            "name": "adjust_ventilation", 
-            "description": "Adjust the ventilation level in the vehicle",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "ventilationLevel": {
-                        "type": "integer",
-                        "description": "Ventilation level from 0 to 100",
-                        "minimum": 0,
-                        "maximum": 100
-                    }
-                },
-                "required": ["ventilationLevel"]
-            }
-        },
-        {
-            "name": "adjust_highway_experience",
-            "description": "Activate highway driving experience with optimized seat position",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "backrest": {"type": "integer", "description": "Backrest position (0-100)", "minimum": 0, "maximum": 100},
-                    "track": {"type": "integer", "description": "Track/forward-backward position (0-100)", "minimum": 0, "maximum": 100},
-                    "tilt": {"type": "integer", "description": "Seat tilt angle (0-100)", "minimum": 0, "maximum": 100}
-                },
-                "required": ["backrest", "track", "tilt"]
-            }
-        },
-        {
-            "name": "adjust_city_experience",
-            "description": "Activate city driving experience with optimized seat position",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "backrest": {"type": "integer", "description": "Backrest position (0-100)", "minimum": 0, "maximum": 100},
-                    "track": {"type": "integer", "description": "Track/forward-backward position (0-100)", "minimum": 0, "maximum": 100},
-                    "tilt": {"type": "integer", "description": "Seat tilt angle (0-100)", "minimum": 0, "maximum": 100}
-                },
-                "required": ["backrest", "track", "tilt"]
-            }
-        },
-        # Track
-        {
-            "name": "move_track_forward",
-            "description": "Move the seat track forward (toward  steering wheel)",
-    "parameters": {
-        "type": "object",
-        "properties": {
-            "current_value": {
-                "type": "integer",
-                "description": "Current track position (0-100)",
-                "minimum": 0,
-                "maximum": 100
-            },
-            "step": {
-                "type": "integer",
-                "description": "Movement step size",
-                "default": 10,
-                "minimum": 1,
-                "maximum": 100
-            },
-            "new_value": {
-                "type": "integer",
-                "description": "Target position (0-100), calculated as current_value + step",
-                "minimum": 0,
-                "maximum": 100}
-                },
-                "required": ["current_value"]
-            }
-        },
-{
-    "name": "move_track_backward",
-    "description": "Move the seat track backward (away steering wheel)",
-    "parameters": {
-        "type": "object",
-        "properties": {
-            "current_value": {
-                "type": "integer",
-                "description": "Current track position (0-100)",
-                "minimum": 0,
-                "maximum": 100
-            },
-            "step": {
-                "type": "integer",
-                "description": "Movement step size (fixed at 10)",
-                "default": 10,
-                "enum": [10]  # Only allow value of 10
-            },
-            "new_value": {
-                "type": "integer",
-                "description": "Target position (0-100), calculated as current_value - 10",
-                "minimum": 0,
-                "maximum": 100
-            }
-        },
-        "required": ["current_value"]
-    }
-},
-        # Height
-        {
-            "name": "move_height_up",
-            "description": "Move the seat height up",
-   "parameters": {
-        "type": "object",
-        "properties": {
-            "current_value": {
-                "type": "integer",
-                "description": "Current height position (0-100)",
-                "minimum": 0,
-                "maximum": 100
-            },
-            "step": {
-                "type": "integer",
-                "description": "Movement step size (fixed at 10)",
-                "default": 10,
-                "enum": [10]  # Only allow value of 10
-            },
-            "new_value": {
-                "type": "integer",
-                "description": "Target position (0-100), calculated as current_value + 10",
-                "minimum": 0,
-                "maximum": 100
-            }
-        },
-                "required": ["current_value"]
-            }
-        },
-        {
-            "name": "move_height_down",
-            "description": "Move the seat height down",
-   "parameters": {
-        "type": "object",
-        "properties": {
-            "current_value": {
-                "type": "integer",
-                "description": "Current height position (0-100)",
-                "minimum": 0,
-                "maximum": 100
-            },
-            "step": {
-                "type": "integer",
-                "description": "Movement step size (fixed at 10)",
-                "default": 10,
-                "enum": [10]  # Only allow value of 10
-            },
-            "new_value": {
-                "type": "integer",
-                "description": "Target position (0-100), calculated as current_value - 10",
-                "minimum": 0,
-                "maximum": 100
-            }
-        },
-                "required": ["current_value"]
-            }
-        },
-        # Backrest
-        {
-            "name": "move_backrest_forward",
-            "description": "Move the backrest forward (more upright position)",
-   "parameters": {
-        "type": "object",
-        "properties": {
-            "current_value": {
-                "type": "integer",
-                "description": "Current backrest position (0-100)",
-                "minimum": 0,
-                "maximum": 100
-            },
-            "step": {
-                "type": "integer",
-                "description": "Movement step size (fixed at 10)",
-                "default": 10,
-                "enum": [10]  # Only allow value of 10
-            },
-            "new_value": {
-                "type": "integer",
-                "description": "Target position (0-100), calculated as current_value + 10",
-                "minimum": 0,
-                "maximum": 100
-            }
-        },
-                "required": ["current_value"]
-            }
-        },
-        {
-            "name": "move_backrest_backward",
-            "description": "Move the backrest backward (more reclined position)",
-        "parameters": {
-        "type": "object",
-        "properties": {
-            "current_value": {
-                "type": "integer",
-                "description": "Current backrest position (0-100)",
-                "minimum": 0,
-                "maximum": 100
-            },
-            "step": {
-                "type": "integer",
-                "description": "Movement step size (fixed at 10)",
-                "default": 10,
-                "enum": [10]  
-            },
-            "new_value": {
-                "type": "integer",
-                "description": "Target position (0-100), calculated as current_value - 10",
-                "minimum": 0,
-                "maximum": 100
-            }
-        },
-                "required": ["current_value"]
-            }
-        },
-        # SeatTilt
-        {
-            "name": "move_seattilt_up",
-            "description": "Tilt the seat up (front edge higher)",
-        "parameters": {
-        "type": "object",
-        "properties": {
-            "current_value": {
-                "type": "integer",
-                "description": "Current seat tilt position (0-100)",
-                "minimum": 0,
-                "maximum": 100
-            },
-            "step": {
-                "type": "integer",
-                "description": "Movement step size (fixed at 10)",
-                "default": 10,
-                "enum": [10]  
-            },
-            "new_value": {
-                "type": "integer",
-                "description": "Target position (0-100), calculated as current_value + 10",
-                "minimum": 0,
-                "maximum": 100
-            }
-        },
-                "required": ["current_value"]
-            }
-        },
-        {
-            "name": "move_seattilt_down",
-            "description": "Tilt the seat down (front edge lower)",
-        "parameters": {
-        "type": "object",
-        "properties": {
-            "current_value": {
-                "type": "integer",
-                "description": "Current seat tilt position (0-100)",
-                "minimum": 0,
-                "maximum": 100
-            },
-            "step": {
-                "type": "integer",
-                "description": "Movement step size (fixed at 10)",
-                "default": 10,
-                "enum": [10]  
-            },
-            "new_value": {
-                "type": "integer",
-                "description": "Target position (0-100), calculated as current_value - 10",
-                "minimum": 0,
-                "maximum": 100
-            }
-        },
-                "required": ["current_value"]
-            }
-        },
-        # UBA
-        {
-            "name": "move_uba_forward",
-            "description": "Move the UBA (Upper Back Adjustment) forward",
-        "parameters": {
-        "type": "object",
-        "properties": {
-            "current_value": {
-                "type": "integer",
-                "description": "Current UBA position (0-100)",
-                "minimum": 0,
-                "maximum": 100
-            },
-            "step": {
-                "type": "integer",
-                "description": "Movement step size (fixed at 10)",
-                "default": 10,
-                "enum": [10]  
-            },
-            "new_value": {
-                "type": "integer",
-                "description": "Target position (0-100), calculated as current_value + 10",
-                "minimum": 0,
-                "maximum": 100
-            }
-        },
-                "required": ["current_value"]
-            }
-        },
-        {
-            "name": "move_uba_backward",
-            "description": "Move the UBA (Upper Back Adjustment) backward",
-        "parameters": {
-        "type": "object",
-        "properties": {
-            "current_value": {
-                "type": "integer",
-                "description": "Current UBA position (0-100)",
-                "minimum": 0,
-                "maximum": 100
-            },
-            "step": {
-                "type": "integer",
-                "description": "Movement step size (fixed at 10)",
-                "default": 10,
-                "enum": [10]  
-            },
-            "new_value": {
-                "type": "integer",
-                "description": "Target position (0-100), calculated as current_value - 10",
-                "minimum": 0,
-                "maximum": 100
-            }
-        },
-                "required": ["current_value"]
-            }
-        },
-        # Headrest
-        {
-            "name": "move_headrest_forward",
-            "description": "Move the headrest forward (closer to head)",
-        "parameters": {
-        "type": "object",
-        "properties": {
-            "current_value": {
-                "type": "integer",
-                "description": "Current headrest position (0-100)",
-                "minimum": 0,
-                "maximum": 100
-            },
-            "step": {
-                "type": "integer",
-                "description": "Movement step size (fixed at 10)",
-                "default": 10,
-                "enum": [10]  
-            },
-            "new_value": {
-                "type": "integer",
-                "description": "Target position (0-100), calculated as current_value + 10",
-                "minimum": 0,
-                "maximum": 100
-            }
-        },
-                "required": ["current_value"]
-            }
-        },
-        {
-            "name": "move_headrest_backward",
-            "description": "Move the headrest backward (away from head)",
-        "parameters": {
-        "type": "object",
-        "properties": {
-            "current_value": {
-                "type": "integer",
-                "description": "Current headrest position (0-100)",
-                "minimum": 0,
-                "maximum": 100
-            },
-            "step": {
-                "type": "integer",
-                "description": "Movement step size (fixed at 10)",
-                "default": 10,
-                "enum": [10]  
-            },
-            "new_value": {
-                "type": "integer",
-                "description": "Target position (0-100), calculated as current_value - 10",
-                "minimum": 0,
-                "maximum": 100
-            }
-        },
-                "required": ["current_value"]
+                "properties": properties,
+                "required": required
             }
         }
-    ]
-    return {"tools": tools_definitions}
 
+    def run(self, host: str = "0.0.0.0", port: int = 5051):
+        """Run the FastAPI server."""
+        self.logger.info(f"🚀 Starting Motor MCP Server on {host}:{port}...")
+        uvicorn.run(self.app, host=host, port=port)
 
 if __name__ == "__main__":
-    uvicorn.run("mcp_server:app", host="0.0.0.0", port=5051, reload=True)
+    server = MotorControlServer()
+    server.run()
