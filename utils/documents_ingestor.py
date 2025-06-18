@@ -9,7 +9,7 @@ import traceback
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
-from constants import CONST
+from utils.ingestor_prepator import CONST
 import argparse
 import warnings
 import chromadb
@@ -178,23 +178,36 @@ class DocumentIngester:
     def delete_all_documents(self):
         """Deletes all stored documents from ChromaDB."""
         try:
-            if not self.vector_store:
+            if not hasattr(self, 'vector_store'):
                 print("❌ Vector store not initialized.")
                 return
 
-            # Safely fetch documents (handle None case)
-            docs = self.vector_store._collection.get(include=["documents"]) if self.vector_store._collection else None
-            if not docs or not docs.get("ids"):
-                print("📂 No documents found in ChromaDB to delete.")
-                return
+            try:
+                # Get all document IDs from the collection
+                collection = self.vector_store._collection
+                docs = collection.get()
+                doc_ids = docs["ids"]
+                
+                print(f"Found {len(doc_ids)} documents in the database.")
 
-            print(f"Deleting {len(docs['ids'])} documents...")
-            self.vector_store.delete(ids=docs["ids"])
-            self.vector_store.persist()
-            print("🚮 All documents have been deleted from ChromaDB.")
+                if not doc_ids:
+                    print("📂 No documents found in ChromaDB to delete.")
+                    return
+
+                # Delete all documents
+                print(f"🗑️ Deleting {len(doc_ids)} documents...")
+                self.vector_store.delete(doc_ids)
+                self.vector_store.persist()
+                print("✅ All documents have been deleted from ChromaDB.")
+                
+            except Exception as e:
+                print(f"❌ Error accessing collection: {e}")
+                raise
+                
         except Exception as e:
             print(f"❌ Error deleting all documents: {e}")
-            if hasattr(self, 'debug') and self.debug:  # Optional: Print traceback if debug=True
+            logging.error(f"Error deleting all documents: {e}")
+            if hasattr(self, 'debug') and self.debug:
                 traceback.print_exc()
           
 

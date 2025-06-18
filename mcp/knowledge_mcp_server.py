@@ -13,7 +13,7 @@ from fastmcp import FastMCP
 import uvicorn
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
-from utils.constants import CONST
+from utils.ingestor_prepator import CONST
 from utils.metadata_handler import MetadataHandler
 from dotenv import load_dotenv
 from langchain.schema import HumanMessage, SystemMessage
@@ -115,14 +115,14 @@ def get_knowledge(query: str, k: int = 2):
         
         # Create the final query for the LLM
         final_query = f"""
-User Query: {query}
+        User Query: {query}
 
-Context:
-{retrieved_context}
+        Context:
+        {retrieved_context}
 
-Metadata:
-{formatted_metadata}
-"""
+        Metadata:
+        {formatted_metadata}
+        """
         
         # Use LLM to generate a response
         response = retriever.llm.invoke([HumanMessage(content=final_query)])
@@ -228,4 +228,4 @@ if __name__ == "__main__":
     retriever.initialize()
     
     # Start the server
-    uvicorn.run("knowledge_mcp_server:app", host="0.0.0.0", port=5052, reload=True)
+    uvicorn.run("knowledge_mcp_server:app", host="0.0.0.0", port=5052, reload=False)

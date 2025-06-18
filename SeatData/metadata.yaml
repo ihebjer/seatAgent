@@ -3,11 +3,14 @@ motors:
   Track: 60
   Height: 40
   Backrest: 30
-  SeatTilt: 15
+  SeatTilt: 3
   Uba: 20
   Headrest: 5
 
-DrivingMode: "Highway"
+seatbelt_tightness: 25
+
+DrivingMode: "City"
+
 car_speed: "Low"
 posture: "pelvis drift"
 fatigue_level: "High"
@@ -15,6 +18,7 @@ time_spent: 12
 cabin_tempreature:
   value: 42
   unit: "C"
+
 
   
 ventilation: 0

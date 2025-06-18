@@ -4,7 +4,13 @@ from typing import Dict, Any
 from fastapi import FastAPI
 from fastmcp import FastMCP
 import uvicorn
-
+import yaml
+from tools_definition import (
+    get_seat_adjustment_tool,
+    get_thermal_tool,
+    get_ventilation_tool,
+    get_pelvis_drift_tool
+)
 class MotorControlServer:
     """MCP Server for motor control with thermal and ventilation features."""
     
@@ -30,14 +36,14 @@ class MotorControlServer:
     
     def _register_endpoints(self):
         """Register all API endpoints."""
-        # Thermal/Ventilation
+        # Main seat adjustment endpoint
+        self.mcp.tool()(self.seat_adjustment)
+        
+        # Individual control endpoints (maintained for backward compatibility)
         self.mcp.tool()(self.adjust_thermal)
         self.mcp.tool()(self.adjust_ventilation)
-        
-        # Preset Experiences
-        self.mcp.tool()(self.adjust_highway_experience)
-        self.mcp.tool()(self.adjust_city_experience)
-        
+        self.mcp.tool()(self.adjustSeat_onPelvisdrift_city)
+
         # Motor Controls
         motors = [
             ('track', ['forward', 'backward']),
@@ -79,13 +85,26 @@ class MotorControlServer:
             
             self.logger.info(f"🔄 Moving {motor} {action} from {current_value} to {new_value}")
             
+            # Return in seat command format
+            motor_key = motor.capitalize()
+            if motor == 'seattilt':
+                motor_key = 'Tilt'
+            elif motor == 'uba':
+                motor_key = 'UBA'
+            
             return {
+                "seatCommand": {
+                    "motors": {
+                        motor_key: {
+                            "percentage": new_value,
+                            "type": "relative",
+                            "direction": direction
+                        }
+                    }
+                },
                 "status": f"{motor} moved {action}",
-                "motor": motor,
                 "previous_value": current_value,
-                "new_value": new_value,
-                "step": step,
-                "message": f"{motor.capitalize()} moved {action} from {current_value} to {new_value}"
+                "new_value": new_value
             }
         
         # Add docstring
@@ -99,15 +118,101 @@ class MotorControlServer:
             new_value: Target position (0-100)
         """
         return motor_method
+    
+    def _read_metadata(self):
+        """Read the current metadata values."""
+        try:
+            metadata_path = "metadata.yaml"
+            with open(metadata_path, 'r') as file:
+                metadata = yaml.safe_load(file)
+            return metadata
+        except Exception as e:
+            self.logger.error(f"Error reading metadata: {str(e)}")
+            return None
 
-    # Thermal/Ventilation Controls
+    def seat_adjustment(self, command: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Full seat adjustment command that accepts the complete seat command JSON structure.
+        Only processes the fields that are provided in the command.
+        """
+        self.logger.info(f"Received seat command: {command}")
+        
+        # Here you would normally process the command and send it to the seat hardware
+        # For now, we'll just return the received command as confirmation
+        
+        return {
+            "status": "success",
+            "command": command,
+            "message": "Seat command processed successfully"
+        }
+
+    def adjustSeat_onPelvisdrift_city(self) -> Dict[str, Any]:
+        """
+        Automatic adjustment for pelvis drift posture in city driving mode.
+        Increases seat tilt by 10 and seatbelt tightness by 10 from current metadata values.
+        Returns the newly calculated values in seat command format.
+        """
+        try:
+            metadata = self._read_metadata()
+            if not metadata:
+                return {
+                    "status": "error",
+                    "message": "Could not read current metadata"
+                }
+            
+            # Get current values from metadata
+            current_seattilt = metadata.get('motors', {}).get('SeatTilt', 0)
+            current_seatbelt = metadata.get('seatbelt_tightness', 0)
+            
+            # Calculate new values (clamped to valid ranges)
+            new_seattilt = self._clamp(current_seattilt + 10)
+            new_seatbelt = self._clamp(current_seatbelt + 10)
+            
+            self.logger.info(
+                f"🔄 Auto-adjusting for pelvis drift (city mode): "
+                f"SeatTilt {current_seattilt}→{new_seattilt}, "
+                f"Seatbelt {current_seatbelt}→{new_seatbelt}"
+            )
+            
+            return {
+                "seatCommand": {
+                    "motors": {
+                        "Tilt": {
+                            "percentage": new_seattilt,
+                            "type": "relative",
+                            "direction": "up" if new_seattilt > current_seattilt else "down"
+                        }
+                    },
+                    "seatbelt": {
+                        "percentage": new_seatbelt
+                    }
+                },
+                "status": "success",
+                "message": (
+                    f"Auto-adjusted for pelvis drift: "
+                    f"SeatTilt set to {new_seattilt}, "
+                    f"Seatbelt tightness set to {new_seatbelt}"
+                )
+            }
+        except Exception as e:
+            self.logger.error(f"Error in adjustSeat_onPelvisdrift_city: {str(e)}")
+            return {
+                "status": "error",
+                "error": str(e),
+                "message": "Failed to auto-adjust for pelvis drift"
+            }
+
     def adjust_thermal(self, heatingLevel: int) -> Dict[str, Any]:
         """Adjust the thermal/heating level in the vehicle."""
         heatingLevel = self._clamp(heatingLevel)
         self.logger.info("🔥 Adjusting thermal level to %d", heatingLevel)
         return {
+            "seatCommand": {
+                "thermal": {
+                    "heatingLevel": heatingLevel
+                }
+            },
             "status": "thermal adjusted",
-            "heatingLevel": heatingLevel,
             "message": f"Thermal level set to {heatingLevel}"
         }
 
@@ -116,55 +221,21 @@ class MotorControlServer:
         ventilationLevel = self._clamp(ventilationLevel)
         self.logger.info("💨 Adjusting ventilation level to %d", ventilationLevel)
         return {
+            "seatCommand": {
+                "thermal": {
+                    "ventilationLevel": ventilationLevel
+                }
+            },
             "status": "ventilation adjusted",
-            "ventilationLevel": ventilationLevel,
             "message": f"Ventilation level set to {ventilationLevel}"
         }
 
-    # Preset Experiences
-    def adjust_highway_experience(self, backrest: int, track: int, tilt: int) -> Dict[str, Any]:
-        """Activate highway driving experience with optimized seat position."""
-        backrest = self._clamp(backrest)
-        track = self._clamp(track)
-        tilt = self._clamp(tilt)
-        
-        self.logger.info("🛣️ Activating highway experience: backrest=%d, track=%d, tilt=%d",
-                         backrest, track, tilt)
-        return {
-            "status": "highway experience activated",
-            "motors": {"backrest": backrest, "track": track, "seatTilt": tilt},
-            "message": f"Highway experience with backrest={backrest}, track={track}, tilt={tilt}"
-        }
-
-    def adjust_city_experience(self, backrest: int, track: int, tilt: int) -> Dict[str, Any]:
-        """Activate city driving experience with optimized seat position."""
-        backrest = self._clamp(backrest)
-        track = self._clamp(track)
-        tilt = self._clamp(tilt)
-        
-        self.logger.info("🏙️ Activating city experience: backrest=%d, track=%d, tilt=%d",
-                         backrest, track, tilt)
-        return {
-            "status": "city experience activated",
-            "motors": {"backrest": backrest, "track": track, "tilt": tilt},
-            "message": f"City experience with backrest={backrest}, track={track}, tilt={tilt}"
-        }
-
     def get_available_tools(self) -> Dict[str, Any]:
-        """Return all available tools with descriptions."""
         tools = [
-            self._create_tool_definition("adjust_thermal", "Adjust thermal level", {"heatingLevel": (0, 100)}),
-            self._create_tool_definition("adjust_ventilation", "Adjust ventilation level", {"ventilationLevel": (0, 100)}),
-            self._create_tool_definition(
-                "adjust_highway_experience",
-                "Activate highway driving experience",
-                {"backrest": (0, 100), "track": (0, 100), "tilt": (0, 100)}
-            ),
-            self._create_tool_definition(
-                "adjust_city_experience",
-                "Activate city driving experience",
-                {"backrest": (0, 100), "track": (0, 100), "tilt": (0, 100)}
-            )
+            get_seat_adjustment_tool(),
+            get_thermal_tool(),
+            get_ventilation_tool(),
+            get_pelvis_drift_tool()
         ]
         
         # Add motor controls
@@ -187,8 +258,8 @@ class MotorControlServer:
                         {"current_value": (0, 100), "step": (10, 10), "new_value": (0, 100)},
                         required=["current_value"]
                     )
-                )
-        
+                ) 
+
         return {"tools": tools}
     
     def _create_tool_definition(self, name: str, description: str, params: Dict[str, tuple], required=None):

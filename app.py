@@ -11,6 +11,8 @@ from flask import Flask, request, jsonify
 from langchain_openai import ChatOpenAI
 from langchain.schema import HumanMessage, SystemMessage
 from utils.metadata_handler import MetadataHandler
+from prompt_manager import PromptManager
+
 
 class DynamicMCPHost:
     """Main MCP Host application that coordinates between LLM and MCP servers."""
@@ -21,6 +23,7 @@ class DynamicMCPHost:
         self._setup_environment()
         self._initialize_services()
         self._create_flask_app()
+        self.prompt_manager = PromptManager()  # Add this line
         
     def _load_configuration(self):
         """Load configuration from YAML file."""
@@ -173,43 +176,7 @@ class DynamicMCPHost:
         """Create the system prompt for the LLM with current context."""
         current_metadata = self.get_current_metadata()
         tools_description = self.create_tools_description()
-        
-        return f"""You are an intelligent car seat assistant with access to MCP (Model Context Protocol) tools.
-
-            CURRENT VEHICLE STATE:
-            {current_metadata}
-
-            {tools_description}
-
-            Your responsibilities:
-            1. Analyze the user's request and current vehicle state
-            2. Choose the most appropriate tool(s) to fulfill the request
-            3. Generate proper tool calls with correct parameters
-            4. Provide helpful responses based on tool results
-
-            Guidelines:
-            - For seat adjustments, use individual motor controls or preset experiences
-            - For knowledge queries, use the RAG system (get_knowledge tool)
-            - For thermal/ventilation, use the appropriate adjustment tools
-            - Always consider current motor positions when making adjustments
-            - Provide clear, conversational responses
-
-            When you decide to use motor tool, respond with a JSON object containing:
-            {{
-                "action": "call_tool",
-                "server": "motor" ,
-                "tool": "tool_name",
-                "args": {{parameter_name: value}},
-                "reasoning": "Why you chose this tool"
-            }}
-
-            When you decide to use knowledge tool, respond with:
-
-            {{  "server": "knowledge",
-                "action": "direct_response",
-                "response": "Your direct response to the user"
-            }}
-    """
+        return self.prompt_manager.get_system_prompt(current_metadata, tools_description)
         
     def send_mcp_command(self, server_name, tool_name, args):
         """Send command to specified MCP server."""
@@ -226,6 +193,7 @@ class DynamicMCPHost:
         except Exception as e:
             self.logger.error(f"Failed to call MCP server {server_name}: {str(e)}")
             return 500, {"error": f"Failed to reach {server_name} server"}
+        
     
     def process_query(self, user_query):
         """Process user query using LLM and MCP tools."""
@@ -257,11 +225,11 @@ class DynamicMCPHost:
                     "metadata": self.get_current_metadata()
                 }, 200
             
-            elif decision.get("action") == "call_tool":
+            elif "seatCommand" in decision:  # Motor command case
                 status_code, tool_result = self.send_mcp_command(
-                    decision.get("server"),
-                    decision.get("tool"),
-                    decision.get("args", {})
+                    "motor",
+                    "seat_adjustment",
+                    decision.get("seatCommand", {})
                 )
                 
                 if status_code == 200:
@@ -273,7 +241,7 @@ class DynamicMCPHost:
                     return {
                         "status": "success",
                         "response": final_response,
-                        "tool_used": f"{decision.get('server')}.{decision.get('tool')}",
+                        "tool_used": "motor.seat_adjustment",
                         "tool_result": tool_result,
                         "metadata": self.get_current_metadata()
                     }, 200
@@ -299,20 +267,11 @@ class DynamicMCPHost:
     
     def generate_final_response(self, user_query, tool_result, reasoning):
         """Generate natural language response based on tool results."""
-        context_prompt = f"""
-        Based on this tool execution:
-        - User asked: "{user_query}"
-        - Tool reasoning: {reasoning}
-        - Tool result: {json.dumps(tool_result, indent=2)}
-
-        Generate a natural, conversational response that:
-        1. Confirms what action was taken
-        2. Explains the result in user-friendly terms
-        3. Mentions any relevant current state information
-        4. Is helpful and concise
-
-        Respond as if you're a helpful car assistant talking directly to the driver.
-        """
+        context_prompt = self.prompt_manager.get_final_response_prompt(
+            user_query,
+            json.dumps(tool_result, indent=2),
+            reasoning
+        )
         response = self.llm.invoke([HumanMessage(content=context_prompt)])
         return response.content.strip()
     
