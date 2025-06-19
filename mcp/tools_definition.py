@@ -140,9 +140,9 @@ def get_thermal_tool() -> Dict[str, Any]:
             "properties": {
                 "heatingLevel": {
                     "type": "integer",
-                    "description": "heating level (0-100)",
+                    "description": "heating level (0-5)",
                     "minimum": 0,
-                    "maximum": 100
+                    "maximum": 5
                 }
             },
             "required": ["heatingLevel"]
@@ -159,9 +159,9 @@ def get_ventilation_tool() -> Dict[str, Any]:
             "properties": {
                 "ventilationLevel": {
                     "type": "integer",
-                    "description": "ventilation level (0-100)",
+                    "description": "ventilation level (0-5)",
                     "minimum": 0,
-                    "maximum": 100
+                    "maximum": 5
                 }
             },
             "required": ["ventilationLevel"]

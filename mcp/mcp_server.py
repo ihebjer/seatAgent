@@ -40,8 +40,8 @@ class MotorControlServer:
         self.mcp.tool()(self.seat_adjustment)
         
         # Individual control endpoints (maintained for backward compatibility)
-        self.mcp.tool()(self.adjust_thermal)
-        self.mcp.tool()(self.adjust_ventilation)
+        # self.mcp.tool()(self.adjust_thermal)
+        # self.mcp.tool()(self.adjust_ventilation)
         self.mcp.tool()(self.adjustSeat_onPelvisdrift_city)
 
         # Motor Controls
@@ -68,54 +68,63 @@ class MotorControlServer:
         return max(min_val, min(value, max_val))
     
     def _create_motor_method(self, motor: str, direction: str):
-        """Dynamically create motor control methods."""
+        """Dynamically create motor control methods that enforce relative movements."""
         def motor_method(
-            current_value: int, 
-            step: int = self.MOTOR_STEP, 
-            new_value: int = None
+            current_value: int,
+            percentage: int = None,  # How much to move (relative)
+            move_fully: bool = False  # Special flag for full movement
         ) -> Dict[str, Any]:
-            """Generated motor control method."""
-            step = self.MOTOR_STEP  # Force fixed step size
+            # Calculate movement percentage
+            if move_fully:
+                if direction in ['backward', 'down']:
+                    percentage = current_value  # Move all the way to min (0)
+                else:
+                    percentage = 100 - current_value  # Move all the way to max (100)
+            elif percentage is None:
+                percentage = self.MOTOR_STEP  # Default step
+                
+            percentage = self._clamp(percentage, 0, 100)
             
-            if new_value is None:
-                new_value = current_value + step if 'forward' in direction or 'up' in direction else current_value - step
-            
+            # Calculate new value for logging
+            if direction in ['backward', 'down']:
+                new_value = current_value - percentage
+            else:
+                new_value = current_value + percentage
             new_value = self._clamp(new_value)
-            action = direction.replace('_', ' ')
             
-            self.logger.info(f"🔄 Moving {motor} {action} from {current_value} to {new_value}")
-            
-            # Return in seat command format
-            motor_key = motor.capitalize()
-            if motor == 'seattilt':
-                motor_key = 'Tilt'
-            elif motor == 'uba':
-                motor_key = 'UBA'
+            self.logger.info(
+                f"🔄 Moving {motor} {direction} by {percentage}% "
+                f"(from {current_value}% to {new_value}%)"
+            )
             
             return {
                 "seatCommand": {
                     "motors": {
-                        motor_key: {
-                            "percentage": new_value,
+                        motor.capitalize(): {
+                            "percentage": percentage,
                             "type": "relative",
                             "direction": direction
                         }
                     }
                 },
-                "status": f"{motor} moved {action}",
-                "previous_value": current_value,
-                "new_value": new_value
+                "status": "success",
+                "metadata": {
+                    "motor": motor,
+                    "from_position": current_value,
+                    "movement": percentage,
+                    "direction": direction,
+                    "to_position": new_value
+                }
             }
         
-        # Add docstring
-        doc_action = "closer to" if "forward" in direction else "away from" if "backward" in direction else direction
+        # Update docstring
         motor_method.__doc__ = f"""
-        Move the {motor} {direction} ({doc_action} {'steering wheel' if motor == 'track' else 'head' if motor == 'headrest' else 'default position'})
+        Move the {motor} {direction} (relative movement)
         
         Args:
-            current_value: Current {motor} position (0-100)
-            step: Movement step size (fixed at 10)
-            new_value: Target position (0-100)
+            current_value: Current position (0-100)
+            percentage: How much to move (0-100), None for default step
+            move_fully: If True, move fully in direction (to min/max)
         """
         return motor_method
     
@@ -202,39 +211,109 @@ class MotorControlServer:
                 "message": "Failed to auto-adjust for pelvis drift"
             }
 
-    def adjust_thermal(self, heatingLevel: int) -> Dict[str, Any]:
-        """Adjust the thermal/heating level in the vehicle."""
-        heatingLevel = self._clamp(heatingLevel)
-        self.logger.info("🔥 Adjusting thermal level to %d", heatingLevel)
-        return {
-            "seatCommand": {
-                "thermal": {
-                    "heatingLevel": heatingLevel
-                }
-            },
-            "status": "thermal adjusted",
-            "message": f"Thermal level set to {heatingLevel}"
-        }
+    # def adjust_thermal(self, heatingLevel: int = None) -> Dict[str, Any]:
+    #     """
+    #     Adjust the thermal/heating level in the vehicle based on cabin temperature.
+    #     If heatingLevel is provided, it will be used directly (clamped to 0-5).
+    #     If not provided, it will be calculated based on cabin temperature.
+    #     """
+    #     metadata = self._read_metadata()
+    #     if not metadata:
+    #         return {
+    #             "status": "error",
+    #             "message": "Could not read current metadata"
+    #         }
+        
+    #     cabin_temp = metadata.get('cabin_temperature', 20)  # Default to 20 if not available
+        
+    #     if heatingLevel is None:
+    #         # Auto-calculate heating level based on temperature
+    #         if cabin_temp >= 20:
+    #             heatingLevel = 0  # No heating needed
+    #         elif 17 <= cabin_temp <= 19:
+    #             heatingLevel = 1
+    #         elif 14 <= cabin_temp <= 16:
+    #             heatingLevel = 2
+    #         elif 11 <= cabin_temp <= 13:
+    #             heatingLevel = 3
+    #         elif 8 <= cabin_temp <= 10:
+    #             heatingLevel = 4
+    #         else:  # Below 8
+    #             heatingLevel = 5
+        
+    #     heatingLevel = self._clamp(heatingLevel, 0, 5)
+    #     self.logger.info(f"🔥 Adjusting heating level to {heatingLevel} (Cabin temp: {cabin_temp}°C)")
+        
+    #     return {
+    #         "seatCommand": {
+    #             "thermal": {
+    #                 "heatingLevel": heatingLevel,
+    #                 "ventilationLevel": 0  # Turn off ventilation when heating
+    #             }
+    #         },
+    #         "status": "thermal adjusted",
+    #         "message": f"Heating level set to {heatingLevel} (Cabin temp: {cabin_temp}°C)",
+    #         "metadata": {
+    #             "cabin_temperature": cabin_temp,
+    #             "calculated_heating": heatingLevel
+    #         }
+    #     }
 
-    def adjust_ventilation(self, ventilationLevel: int) -> Dict[str, Any]:
-        """Adjust the ventilation level in the vehicle."""
-        ventilationLevel = self._clamp(ventilationLevel)
-        self.logger.info("💨 Adjusting ventilation level to %d", ventilationLevel)
-        return {
-            "seatCommand": {
-                "thermal": {
-                    "ventilationLevel": ventilationLevel
-                }
-            },
-            "status": "ventilation adjusted",
-            "message": f"Ventilation level set to {ventilationLevel}"
-        }
+    # def adjust_ventilation(self, ventilationLevel: int = None) -> Dict[str, Any]:
+    #     """
+    #     Adjust the ventilation level in the vehicle based on cabin temperature.
+    #     If ventilationLevel is provided, it will be used directly (clamped to 0-5).
+    #     If not provided, it will be calculated based on cabin temperature.
+    #     """
+    #     metadata = self._read_metadata()
+    #     if not metadata:
+    #         return {
+    #             "status": "error",
+    #             "message": "Could not read current metadata"
+    #         }
+        
+    #     cabin_temp = metadata.get('cabin_temperature', 20)  # Default to 20 if not available
+        
+    #     if ventilationLevel is None:
+    #         # Auto-calculate ventilation level based on temperature
+    #         if cabin_temp < 20:
+    #             ventilationLevel = 0  # No ventilation needed
+    #         elif 20 <= cabin_temp <= 23:
+    #             ventilationLevel = 0
+    #         elif 24 <= cabin_temp <= 28:
+    #             ventilationLevel = 1
+    #         elif 29 <= cabin_temp <= 32:
+    #             ventilationLevel = 2
+    #         elif 33 <= cabin_temp <= 36:
+    #             ventilationLevel = 3
+    #         elif 37 <= cabin_temp <= 40:
+    #             ventilationLevel = 4
+    #         else:  # Above 40
+    #             ventilationLevel = 5
+        
+    #     ventilationLevel = self._clamp(ventilationLevel, 0, 5)
+    #     self.logger.info(f"💨 Adjusting ventilation level to {ventilationLevel} (Cabin temp: {cabin_temp}°C)")
+        
+    #     return {
+    #         "seatCommand": {
+    #             "thermal": {
+    #                 "ventilationLevel": ventilationLevel,
+    #                 "heatingLevel": 0  # Turn off heating when ventilating
+    #             }
+    #         },
+    #         "status": "ventilation adjusted",
+    #         "message": f"Ventilation level set to {ventilationLevel} (Cabin temp: {cabin_temp}°C)",
+    #         "metadata": {
+    #             "cabin_temperature": cabin_temp,
+    #             "calculated_ventilation": ventilationLevel
+    #         }
+    #     }
 
     def get_available_tools(self) -> Dict[str, Any]:
         tools = [
             get_seat_adjustment_tool(),
-            get_thermal_tool(),
-            get_ventilation_tool(),
+            # get_thermal_tool(),
+            # get_ventilation_tool(),
             get_pelvis_drift_tool()
         ]
         
